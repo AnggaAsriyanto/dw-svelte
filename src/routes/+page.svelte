@@ -9,6 +9,8 @@
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <ul>
      {#each data.contents as content }
-          <li>{content.title}</li>
+          <li>
+               <a href="/h/{content.code}">{content.title}</a>
+          </li>
      {/each}
 </ul>
