@@ -4,6 +4,7 @@
      export let data: PageServerData;
 </script>
 
+<a href="/about">go to about</a>
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 <ul>
