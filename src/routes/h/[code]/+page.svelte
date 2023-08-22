@@ -10,7 +10,7 @@
 <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}">
 <p>{ data.content.code }</p>
 
-<style>
+<style lang="scss">
      .img {
           max-width: 300px;
      }
