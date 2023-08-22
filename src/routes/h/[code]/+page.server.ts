@@ -17,9 +17,7 @@ export const load: PageServerLoad = async ({ params }) => {
      });
 
      const images = await Promise.all(metadataPromises);
-
      return {
           content: data ?? [],
-          images: images ?? []
      }
 }
