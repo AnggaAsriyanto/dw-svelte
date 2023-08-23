@@ -18,7 +18,7 @@ export const load: PageServerLoad = async ({ params }) => {
 
      // const images = await Promise.all(metadataPromises);
 
-     const testMetadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: listObjectsResponse.Contents[0].Key }))
+     const testMetadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: 'contents/ncyxi/01_ncyxi.jpg' }))
      
 
      return {
