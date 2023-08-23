@@ -9,7 +9,7 @@
      let srcsetImage = `${urlImage}?w=250&format=webp&q=80&fit=fill 250w, ${urlImage}?w=300&format=webp&q=80&fit=fill 300w, ${urlImage}?w=600&format=webp&q=80&fit=fill 600w`
 </script>
 
-<img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}">
+<!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
 <p>{ data.content.code }</p>
 <!-- <ul>
      {#each data.images as image}
