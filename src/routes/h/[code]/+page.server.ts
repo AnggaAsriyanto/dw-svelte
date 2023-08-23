@@ -11,14 +11,24 @@ export const load: PageServerLoad = async ({ params }) => {
 
      const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
     
-     // const metadataPromises = listObjectsResponse?.Contents?.map(async (object) => {
-     //      const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: object.Key }))
-     //      return { key: object.Key, metadata: metadata.Metadata};
-     // });
+     const metadataPromises = listObjectsResponse?.Contents?.map(async (object) => {
+          const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: object.Key }))
+          return { key: object.Key, metadata: metadata.Metadata};
+     });
+
+     let images
+
+     if (metadataPromises) {
+          images = await Promise.all(metadataPromises);
+          // Rest of your code here
+     } else {
+          images = null
+     }
 
      // const images = await Promise.all(metadataPromises);
      return {
           content: data ?? [],
           list: listObjectsResponse ?? [],
+          images: images,
      }
 }
