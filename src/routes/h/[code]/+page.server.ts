@@ -9,7 +9,7 @@ import {
 export const load: PageServerLoad = async ({ params }) => {
      const { data } = await supabase.from('contents').select('*').eq("code", params.code).single();
 
-     const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
+     // const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
     
      // const metadataPromises = listObjectsResponse?.Contents?.map(async (object) => {
      //      const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: object.Key }))
@@ -23,7 +23,6 @@ export const load: PageServerLoad = async ({ params }) => {
 
      return {
           content: data ?? [],
-          list: listObjectsResponse ?? [],
-          meta: testMetadata ?? [],
+          list: testMetadata ?? [],
      }
 }
