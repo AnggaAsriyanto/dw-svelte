@@ -16,6 +16,8 @@ export const load: PageServerLoad = async ({ params }) => {
      //      return { key: object.Key, metadata: metadata.Metadata};
      // });
 
+     const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: 'contents/unofg/01_unofg.png' }))
+
      // const images = await Promise.all(metadataPromises);     
 
      return {
