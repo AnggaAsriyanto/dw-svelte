@@ -10,7 +10,11 @@ export const load: PageServerLoad = async ({ params, platform }) => {
 
      const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
 
-     const test = await platform?.env?.DB_R2.get("covers/ncyxi")
+     const option = {
+          prefix: 'covers'
+     }
+
+     const test = await platform?.env?.BUCKET.list(option)
 
      console.log(test)
 

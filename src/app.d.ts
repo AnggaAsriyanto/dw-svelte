@@ -14,7 +14,7 @@ declare global {
     }
     interface Platform {
       env?: {
-        DB_R2: DB;
+        BUCKET: BUCKET;
       };
       context?: {
         waitUntil(promise: Promise<any>): void;
