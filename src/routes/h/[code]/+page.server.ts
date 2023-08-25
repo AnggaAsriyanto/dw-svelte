@@ -16,10 +16,11 @@ export const load: PageServerLoad = async ({ params, platform }) => {
      }
 
      const test = await platform?.env?.BUCKET.list(option) 
+     const images = JSON.stringify(test)
 
      return {
           content: data ?? [],
           list: listObjectsResponse ?? [],
-          test: JSON.stringify(test) ?? []
+          test: JSON.parse(images) ?? []
      }
 }
