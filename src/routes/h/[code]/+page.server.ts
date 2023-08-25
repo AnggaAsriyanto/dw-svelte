@@ -30,5 +30,6 @@ export const load: PageServerLoad = async ({ params, platform }) => {
      return {
           content: data ?? [],
           list: listObjectsResponse ?? [],
+          test: test ?? []
      }
 }
