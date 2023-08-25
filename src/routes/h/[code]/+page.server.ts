@@ -28,6 +28,6 @@ export const load: PageServerLoad = async ({ params, platform }) => {
      return {
           content: data ?? [],
           list: listObjectsResponse ?? [],
-          test: JSON.stringify(test) ?? []
+          test: test ?? []
      }
 }
