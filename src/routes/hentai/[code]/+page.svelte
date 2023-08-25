@@ -1,5 +1,5 @@
 <script lang="ts">
-	import type { PageServerData } from "./$types";
+	import type { PageServerData } from "../../hentai/[code]/$types";
 
      export let data: PageServerData
 
