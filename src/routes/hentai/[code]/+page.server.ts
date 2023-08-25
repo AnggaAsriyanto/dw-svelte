@@ -16,11 +16,11 @@ export const load: PageServerLoad = async ({ params, platform, cookies }) => {
           imageContents = imageCookie
      } else { 
           imageContents = await platform?.env?.BUCKET.list(option) 
-          cookies.set(`image-${params.code}`, JSON.parse(JSON.stringify(imageContents)))
+          cookies.set(`image-${params.code}`, imageContents)
      }
 
      return {
           content: data ?? [],
-          imageContents: imageContents ?? []
+          imageContents: imageContents ? JSON.parse(JSON.stringify(imageContents)) : []
      }
 }
