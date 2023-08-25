@@ -1,10 +1,8 @@
 <script lang="ts">
-     import type { PageData } from '../$types.js';
-
-     export let data: PageData;
+     export let data;
 
      console.log(data)
 </script>
 
-<p>{ data?.idx }</p>
+<p>Hello</p>
 
