@@ -10,7 +10,7 @@
 <ul>
      {#each data.contents as content }
           <li>
-               <a href="/h/{content.code}">{content.title}</a>
+               <a href="/hentai/{content.code}">{content.title}</a>
           </li>
      {/each}
 </ul>
