@@ -1,6 +1,8 @@
 <script>
      export let data;
+
+     console.log(data)
 </script>
 
-<p>This is { data.idx }</p>
+<p>{ data.idx }</p>
 

@@ -15,7 +15,7 @@
 <ul>
      {#each data?.imageContents?.objects as image, index}
           <li>
-               <a href="/hentai/{index}">
+               <a href="/hentai/{index + 1}">
                     { image.key }
                </a>
           </li>
