@@ -11,7 +11,7 @@
 
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
 <p>{ data.content.code }</p>
-<p>{ data?.test }</p>
+<p>{ data?.test?.objects }</p>
 <!-- <ul>
      {#each data.images as image}
           <li>
