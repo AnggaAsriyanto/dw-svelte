@@ -12,14 +12,13 @@
 
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
 <p>{ data.content.code }</p>
-<p>{ data.test }</p>
-<!-- <ul>
-     {#each data.images as image}
+<ul>
+     {#each data?.imageContents as image}
           <li>
                { image.key }
           </li>
      {/each}
-</ul> -->
+</ul>
 
 <style lang="scss">
      .img {
