@@ -11,7 +11,8 @@ export const load: PageServerLoad = async ({ params, platform }) => {
      const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
 
      const option = {
-          prefix: 'covers'
+          prefix: 'covers',
+          include: ['customMetadata']
      }
 
      const test = await platform?.env?.BUCKET.list(option)
