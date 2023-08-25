@@ -12,7 +12,15 @@ declare global {
     interface PageData {
       session: Session | null;
     }
+    interface Platform {
+      env?: {
+        DB_R2: DB;
+      };
+      context?: {
+        waitUntil(promise: Promise<any>): void;
+      };
+      caches: CacheStorage & { default: Cache }
+    }
     // interface Error {}
-    // interface Platform {}
   }
 }

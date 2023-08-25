@@ -3,13 +3,16 @@ import type { PageServerLoad } from "./$types";
 import { s3 } from "$lib/s3";
 import {
      ListObjectsV2Command,
-     HeadObjectCommand,
    } from "@aws-sdk/client-s3";
 
-export const load: PageServerLoad = async ({ params }) => {
+export const load: PageServerLoad = async ({ params, platform }) => {
      const { data } = await supabase.from('contents').select('*').eq("code", params.code).single();
 
      const listObjectsResponse = await s3.send(new ListObjectsV2Command({ Bucket: 'overdoujin', Prefix: `contents/${params.code}/` }))
+
+     const test = await platform?.env?.DB_R2.get("covers/ncyxi")
+
+     console.log(test)
 
      // const metadataPromises = listObjectsResponse?.Contents?.map(async (object) => {
      //      const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: object.Key }))
