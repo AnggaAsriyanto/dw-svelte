@@ -14,9 +14,7 @@ export const load: PageServerLoad = async ({ params, platform }) => {
           prefix: 'covers'
      }
 
-     const test = platform?.env?.BUCKET.list(option)
-
-     console.log(test)
+     const test = await platform?.env?.BUCKET.list(option)
 
      // const metadataPromises = listObjectsResponse?.Contents?.map(async (object) => {
      //      const metadata = await s3.send(new HeadObjectCommand({ Bucket: 'overdoujin', Key: object.Key }))
