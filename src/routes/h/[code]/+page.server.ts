@@ -14,7 +14,7 @@ export const load: PageServerLoad = async ({ params, platform }) => {
           prefix: 'covers'
      }
 
-     const test = await platform?.env?.BUCKET.list(option)
+     const test = platform?.env?.BUCKET.list(option)
 
      console.log(test)
 
@@ -30,6 +30,6 @@ export const load: PageServerLoad = async ({ params, platform }) => {
      return {
           content: data ?? [],
           list: listObjectsResponse ?? [],
-          test: test ?? []
+          test: JSON.stringify(test) ?? []
      }
 }
