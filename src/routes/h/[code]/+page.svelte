@@ -13,7 +13,7 @@
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
 <p>{ data.content.code }</p>
 <ul>
-     {#each data?.imageContents as image}
+     {#each data?.imageContents?.objects as image}
           <li>
                { image.key }
           </li>
