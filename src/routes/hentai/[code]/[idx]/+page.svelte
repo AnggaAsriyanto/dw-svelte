@@ -8,11 +8,11 @@
      // let prevLink = `/hentai/${data.code}/${parseInt(data.idx) - 1}`
 
      function nextIdx() {
-          goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true, invalidateAll: true })
+          goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
      }
 
      function prevIdx() {
-          goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true, invalidateAll: true })
+          goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
      }
 </script>
 
