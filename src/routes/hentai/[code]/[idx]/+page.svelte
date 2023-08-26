@@ -5,11 +5,11 @@
      export let data;
      console.log(data)
 
+     let panel: any;
      let panelCurrent: any;
-     let panelList: any;
 
      onMount(() => {
-          console.log(panelCurrent, panelList)
+          console.log(panel, panelCurrent)
      })
 
      function nextIdx() {
@@ -17,7 +17,7 @@
                return goto(`/hentai/${data.code}`)
           }
 
-          console.log(panelList, panelCurrent)
+          console.log(panel, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
      }
 
@@ -25,22 +25,22 @@
           if(data.idx === 1) {
                return goto(`/hentai/${data.code}`)
           }
-          
-          console.log(panelList, panelCurrent)
+
+          console.log(panel, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
      }
 
 
 </script>
 
-<p bind:this={panelCurrent}>Hello index { data.idx }</p>
+<p bind:this={panel}>Hello index { data.idx }</p>
 <button on:click={prevIdx}>prev</button>
 <button on:click={nextIdx}>next</button>
 
 <ul>
      { #each data.images as images, idx }
-          {#if idx === data.idx}
-               <li bind:this={panelList}>{ images.key }</li>
+          {#if idx + 1 === data.idx }
+               <li bind:this={panelCurrent}>{ images.key }</li>
           {:else} 
                <li>{ images.key }</li>
           {/if}
