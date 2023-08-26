@@ -17,8 +17,8 @@
                return goto(`/hentai/${data.code}`)
           }
 
-          console.log(panel, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
+          console.log(panel, panelCurrent)
      }
 
      function prevIdx() {
@@ -26,8 +26,8 @@
                return goto(`/hentai/${data.code}`)
           }
 
-          console.log(panel, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
+          console.log(panel, panelCurrent)
      }
 
 
