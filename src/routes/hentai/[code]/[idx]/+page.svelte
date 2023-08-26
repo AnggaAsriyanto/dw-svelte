@@ -4,20 +4,19 @@
      export let data;
      console.log(data)
 
-     let imgIdx = parseInt(data.idx)
-     let nextLink = `/hentai/${data.code}/${imgIdx + 1}`
-     let prevLink = `/hentai/${data.code}/${imgIdx - 1}`
+     // let nextLink = `/hentai/${data.code}/${parseInt(data.idx) + 1}`
+     // let prevLink = `/hentai/${data.code}/${parseInt(data.idx) - 1}`
 
      function nextIdx() {
-          goto(nextLink, { replaceState: true, invalidateAll: true })
+          goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true, invalidateAll: true })
      }
 
      function prevIdx() {
-          goto(prevLink, { replaceState: true, invalidateAll: true })
+          goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true, invalidateAll: true })
      }
 </script>
 
-<p>Hello index { imgIdx }</p>
+<p>Hello index { data.idx }</p>
 <button on:click={nextIdx}>next</button>
 <button on:click={prevIdx}>prev</button>
 
