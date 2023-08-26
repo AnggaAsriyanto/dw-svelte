@@ -11,9 +11,9 @@
 </script>
 
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
-<p>{ data?.content.code }</p>
+<p>{ data.content.code }</p>
 <ul>
-     {#each data?.images as image, index}
+     {#each data.images as image, index}
           <li>
                <a href="/hentai/{data.content.code}/{index + 1}">
                     { image.key }
