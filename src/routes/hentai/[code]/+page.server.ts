@@ -1,18 +1,18 @@
-import { supabase } from "$lib/supabaseClient";
-import type { PageServerLoad } from "../../$types";
+// import { supabase } from "$lib/supabaseClient";
+// import type { PageServerLoad } from "../../$types";
 
-export const load: PageServerLoad = async ({ params, platform }) => {
-     const { data } = await supabase.from('contents').select('*').eq("code", params.code).single();
+// export const load: PageServerLoad = async ({ params, platform }) => {
+//      const { data } = await supabase.from('contents').select('*').eq("code", params.code).single();
 
-     const option = {
-          prefix: `contents/${params.code}`,
-          include: ['customMetadata']
-     }
+//      const option = {
+//           prefix: `contents/${params.code}`,
+//           include: ['customMetadata']
+//      }
 
-     const imageContents = await platform?.env?.BUCKET.list(option) 
+//      const imageContents = await platform?.env?.BUCKET.list(option) 
 
-     return {
-          content: data ?? [],
-          imageContents: imageContents ? JSON.parse(JSON.stringify(imageContents)) : []
-     }
-}
+//      return {
+//           content: data ?? [],
+//           imageContents: imageContents ? JSON.parse(JSON.stringify(imageContents)) : []
+//      }
+// }
