@@ -9,11 +9,11 @@
      let prevLink = `/hentai/${data.code}/${imgIdx - 1}`
 
      function nextIdx() {
-          goto(nextLink, { replaceState: true })
+          goto(nextLink, { replaceState: true, invalidateAll: true })
      }
 
      function prevIdx() {
-          goto(prevLink, { replaceState: true })
+          goto(prevLink, { replaceState: true, invalidateAll: true })
      }
 </script>
 
