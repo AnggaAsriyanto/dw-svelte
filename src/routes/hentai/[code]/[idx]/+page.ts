@@ -1,5 +1,6 @@
 export const load = ({ params }) => {
      return {
-          idx: params.idx
+          idx: params.idx,
+          code: params.code
      }
 }
