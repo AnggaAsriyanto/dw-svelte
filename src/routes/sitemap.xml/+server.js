@@ -1,34 +1,42 @@
-import { supabase } from '$lib/supabaseClient.js';
+import { createClient } from "@supabase/supabase-js";
+import { PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_KEY } from "$env/static/public" 
 
-export async function GET()  {
+export async function GET({ setHeaders })  {
+     setHeaders({
+          'Content-Type': 'application/xml'
+     });
+          
      const site = 'https://overdoujin.com'
+     const currentTime = new Date().toISOString();
+
+     const supabase = createClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_KEY)
+
+     const staticUrls = [
+          '/login',
+          '/register'
+     ]
 
      const contents = await supabase.from('contents').select('code')
      const contentUrls = contents.data?.map((content) => `/hentai/${content.code}`)
 
-     const allUrls = [...contentUrls]
+     const allUrls = [...staticUrls, ...contentUrls]
 
-     const sitemapXML = generateSitemap(allUrls, site)
-
-     return {
-          headers: {
-               'Content-Type': 'application/xml',
-          },
-          body: sitemapXML,
-     };
-}
-
-function generateSitemap(urls, site) {
      let sitemap = '<?xml version="1.0" encoding="UTF-8" ?>\n';
      sitemap += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+     sitemap += `<url>
+                    <loc>${site}</loc>
+                    <changefreq>daily</changefreq>
+                    <priority>0.7</priority>
+                 </url>\n`;
    
-     urls.forEach((url) => {
+     allUrls.forEach((url) => {
        sitemap += '<url>\n';
        sitemap += `<loc>${site}${url}</loc>\n`;
-       sitemap += '<changefreq>daily</changefreq>\n'; // Frekuensi perubahan (bisa disesuaikan)
+       sitemap += '<changefreq>weekly</changefreq>\n';
+       sitemap += `<lastmod>${currentTime}</lastmod>\n`
        sitemap += '</url>\n';
      });
    
      sitemap += '</urlset>';
-     return sitemap;
+     return new Response(sitemap);
 }
