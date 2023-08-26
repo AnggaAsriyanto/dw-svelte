@@ -9,10 +9,11 @@ export const load: LayoutServerLoad = async ({ params, platform }) => {
           include: ['customMetadata']
      }
 
-     const imageContents = await platform?.env?.BUCKET.list(option) 
+     const imageRawList= await platform?.env?.BUCKET.list(option)
+     const imageList = JSON.parse(JSON.stringify(imageRawList))
 
      return {
           content: data ?? [],
-          imageContents: imageContents ? JSON.parse(JSON.stringify(imageContents)) : []
+          images: imageList?.objects ?? []
      }
 }
