@@ -13,19 +13,20 @@
      })
 
      function nextIdx() {
-          console.log(panelCurrent)
           if(data.idx === data.images.length) {
                return goto(`/hentai/${data.code}`)
           }
 
+          console.log(panelList, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
      }
 
      function prevIdx() {
-          console.log(panelCurrent)
           if(data.idx === 1) {
                return goto(`/hentai/${data.code}`)
           }
+          
+          console.log(panelList, panelCurrent)
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
      }
 
@@ -37,8 +38,12 @@
 <button on:click={nextIdx}>next</button>
 
 <ul>
-     { #each data.images as images }
-          <li bind:this={panelList}>{ images.key }</li>
+     { #each data.images as images, idx }
+          {#if idx === data.idx}
+               <li bind:this={panelList}>{ images.key }</li>
+          {:else} 
+               <li>{ images.key }</li>
+          {/if}
      {/each}
 </ul>
 
