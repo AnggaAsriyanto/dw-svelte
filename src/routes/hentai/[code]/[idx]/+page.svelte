@@ -13,7 +13,7 @@
      })
 
      function nextIdx() {
-          panelCurrent = ''
+          console.log(panelCurrent)
           if(data.idx === data.images.length) {
                return goto(`/hentai/${data.code}`)
           }
@@ -22,7 +22,7 @@
      }
 
      function prevIdx() {
-          panelCurrent = ''
+          console.log(panelCurrent)
           if(data.idx === 1) {
                return goto(`/hentai/${data.code}`)
           }
