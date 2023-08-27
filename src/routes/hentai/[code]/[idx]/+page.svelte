@@ -18,6 +18,7 @@
           }
 
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
+          toTopPanel()
      }
 
      function prevIdx() {
@@ -26,13 +27,19 @@
           }
 
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
+          toTopPanel()
+     }
+
+     function toTopPanel() {
+          panel.scrollIntoView()
      }
 
 
 </script>
 
 <div class="read page">
-     <p bind:this={panel}>Hello index { data.idx }</p>
+     <p>Hello index { data.idx }</p>
+     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].customMetadata.key}" alt="">
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
@@ -46,5 +53,11 @@
           {/each}
      </ul>
 </div>
+
+<style lang="scss">
+     img {
+          max-width: 300px;
+     }
+</style>
 
 
