@@ -35,15 +35,18 @@
      }
 
      function toTopPanel() {
-          const el = document.getElementById('panel')
-          if(!el) {
-               return
-          }
+          // const el = document.getElementById('panel')
+          // if(!el) {
+          //      return
+          // }
 
-          el.scrollIntoView({
+          // el.scrollIntoView({
+          //      behavior: 'instant'
+          // })
+          // console.log(el)
+          panel.scrollIntoView({
                behavior: 'instant'
           })
-          console.log(el)
      }
 
 
@@ -51,30 +54,33 @@
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
-     <img bind:this={panel} 
+     <img bind:this={panel}
      id="panel"
      src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
-     alt="" 
+     alt="{data.images[data.idx - 1].key}" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
      height="{data.images[data.idx - 1].customMetadata.height}">
 
      {#if data.images[data.idx]}
-          <img bind:this={panel}
+          <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
           alt="{data.images[data.idx].key}" 
           width="{data.images[data.idx].customMetadata.width}" 
           height="{data.images[data.idx].customMetadata.height}">
+     {/if}
 
-          {:else if data.images[data.idx + 1]}
+     {#if data.images[data.idx + 1]}
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
           alt="{data.images[data.idx + 1].key}" 
           width="{data.images[data.idx + 1].customMetadata.width}" 
           height="{data.images[data.idx + 1].customMetadata.height}">
+     {/if}
 
-          {:else if data.images[data.idx + 2]}
+
+     {#if data.images[data.idx + 2]}
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
@@ -82,14 +88,11 @@
           width="{data.images[data.idx + 2].customMetadata.width}" 
           height="{data.images[data.idx + 2].customMetadata.height}">
      {/if}
+     
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
      <button on:click={toTopPanel}>into view</button>
-
-     {#each Array(4) as _, idx}
-          <p>{idx}</p>
-     {/each}
 
      <ul>
           { #each data.images as images, idx }
