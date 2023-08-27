@@ -32,6 +32,7 @@
 
      function toTopPanel() {
           panel.scrollIntoView()
+          console.log(panel)
      }
 
 
