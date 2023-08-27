@@ -1,6 +1,5 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { page } from '$app/stores';
 	import { afterUpdate, onMount } from 'svelte';
 
      export let data;
@@ -37,7 +36,7 @@
      }
 
      function toTopPanel() {
-          panel.scrollIntoView()
+          panel.scrollIntoView();
      }
 
 
@@ -74,6 +73,7 @@
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
+     <button on:click={toTopPanel}>into view</button>
 
      {#each Array(4) as _, idx}
           <p>{idx}</p>
@@ -96,6 +96,7 @@
           max-width: 300px;
           height: auto;
           object-fit: contain;
+          background-color: gray;
           &.hide {
                display: none;
           }
