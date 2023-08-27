@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { page } from '$app/stores';
+	import { afterUpdate, onMount } from 'svelte';
 
      export let data;
      console.log(data)
@@ -10,6 +11,11 @@
 
      onMount(() => {
           console.log(panel, panelCurrent)
+     })
+
+     afterUpdate(() => {
+          console.log('update')
+          toTopPanel()
      })
 
      function nextIdx() {
@@ -69,7 +75,7 @@
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
-     {#each Array(4) as idx}
+     {#each Array(4) as _, idx}
           <p>{idx}</p>
      {/each}
 
