@@ -39,8 +39,10 @@
           if(!el) {
                return
           }
-          
-          el.scrollIntoView()
+
+          el.scrollIntoView({
+               behavior: 'instant'
+          })
           console.log(el)
      }
 
