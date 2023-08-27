@@ -47,27 +47,31 @@
 
      <img bind:this={panel}
      class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
      alt="" 
-     width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}">
+     width="{data.images[data.idx].customMetadata.width}" 
+     height="{data.images[data.idx].customMetadata.height}">
 
      <img bind:this={panel} 
      class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
      alt="" 
-     width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}">
+     width="{data.images[data.idx + 1].customMetadata.width}" 
+     height="{data.images[data.idx + 1].customMetadata.height}">
 
      <img bind:this={panel} 
      class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
      alt="" 
-     width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}">
+     width="{data.images[data.idx + 2].customMetadata.width}" 
+     height="{data.images[data.idx + 2].customMetadata.height}">
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
+
+     {#each Array(4) as idx}
+          <p>{idx}</p>
+     {/each}
 
      <ul>
           { #each data.images as images, idx }
