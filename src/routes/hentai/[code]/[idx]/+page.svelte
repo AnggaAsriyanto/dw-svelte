@@ -52,6 +52,7 @@
 <div class="read page">
      <p>Hello index { data.idx }</p>
      <img bind:this={panel} 
+     id="panel"
      src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
      alt="" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
@@ -59,7 +60,6 @@
 
      {#if data.images[data.idx]}
           <img bind:this={panel}
-          id="panel"
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
           alt="{data.images[data.idx].key}" 
