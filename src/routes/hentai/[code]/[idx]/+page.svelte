@@ -36,7 +36,10 @@
 
      function toTopPanel() {
           panel.scrollIntoView()
-          console.log(panel)
+
+          renderImage(data.idx + 1)
+          renderImage(data.idx + 2)
+          renderImage(data.idx + 3)
      }
 
      function renderImage(idx: number) {
@@ -58,7 +61,12 @@
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
-     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" alt="">
+     <img bind:this={panel} 
+     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     alt="" 
+     width="{data.images[data.idx - 1].customMetadata.width}" 
+     height="{data.images[data.idx - 1].customMetadata.height}">
+     
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
