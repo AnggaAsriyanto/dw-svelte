@@ -40,7 +40,7 @@
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
-     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].customMetadata.key}" alt="">
+     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}" alt="">
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
