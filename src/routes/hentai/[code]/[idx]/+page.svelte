@@ -36,6 +36,8 @@
      }
 
      function toTopPanel() {
+          const el = document.getElementById('panel')
+          console.log(el)
           panel.scrollIntoView();
      }
 
@@ -50,26 +52,31 @@
      width="{data.images[data.idx - 1].customMetadata.width}" 
      height="{data.images[data.idx - 1].customMetadata.height}">
 
-     <img bind:this={panel}
-     class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
-     alt="" 
-     width="{data.images[data.idx].customMetadata.width}" 
-     height="{data.images[data.idx].customMetadata.height}">
+     {#if data.images[data.idx]}
+          <img bind:this={panel}
+          id="panel"
+          class="hide"
+          src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
+          alt="" 
+          width="{data.images[data.idx].customMetadata.width}" 
+          height="{data.images[data.idx].customMetadata.height}">
 
-     <img bind:this={panel} 
-     class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
-     alt="" 
-     width="{data.images[data.idx + 1].customMetadata.width}" 
-     height="{data.images[data.idx + 1].customMetadata.height}">
+          {:else if data.images[data.idx + 1]}
+          <img 
+          class="hide"
+          src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
+          alt="" 
+          width="{data.images[data.idx + 1].customMetadata.width}" 
+          height="{data.images[data.idx + 1].customMetadata.height}">
 
-     <img bind:this={panel} 
-     class="hide"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
-     alt="" 
-     width="{data.images[data.idx + 2].customMetadata.width}" 
-     height="{data.images[data.idx + 2].customMetadata.height}">
+          {:else if data.images[data.idx + 2]}
+          <img 
+          class="hide"
+          src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
+          alt="" 
+          width="{data.images[data.idx + 2].customMetadata.width}" 
+          height="{data.images[data.idx + 2].customMetadata.height}">
+     {/if}
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
