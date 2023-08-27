@@ -14,7 +14,6 @@
 
      afterUpdate(() => {
           console.log('update')
-          toTopPanel()
      })
 
      function nextIdx() {
@@ -37,8 +36,8 @@
 
      function toTopPanel() {
           const el = document.getElementById('panel')
-          console.log(el)
-          panel.scrollIntoView();
+          if(!el) return
+          el.scrollIntoView()
      }
 
 
