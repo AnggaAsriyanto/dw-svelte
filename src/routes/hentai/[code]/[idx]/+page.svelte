@@ -36,8 +36,12 @@
 
      function toTopPanel() {
           const el = document.getElementById('panel')
-          if(!el) return
+          if(!el) {
+               return
+          }
+          
           el.scrollIntoView()
+          console.log(el)
      }
 
 
@@ -56,7 +60,7 @@
           id="panel"
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
-          alt="" 
+          alt="{data.images[data.idx].key}" 
           width="{data.images[data.idx].customMetadata.width}" 
           height="{data.images[data.idx].customMetadata.height}">
 
@@ -64,7 +68,7 @@
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
-          alt="" 
+          alt="{data.images[data.idx + 1].key}" 
           width="{data.images[data.idx + 1].customMetadata.width}" 
           height="{data.images[data.idx + 1].customMetadata.height}">
 
@@ -72,7 +76,7 @@
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
-          alt="" 
+          alt="{data.images[data.idx + 2].key}" 
           width="{data.images[data.idx + 2].customMetadata.width}" 
           height="{data.images[data.idx + 2].customMetadata.height}">
      {/if}
