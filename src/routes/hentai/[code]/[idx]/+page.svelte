@@ -8,6 +8,10 @@
      let panel: any;
      let panelCurrent: any;
 
+     renderImage(data.idx)
+     renderImage(data.idx + 1)
+     renderImage(data.idx + 2)
+
      onMount(() => {
           console.log(panel, panelCurrent)
      })
@@ -35,12 +39,26 @@
           console.log(panel)
      }
 
+     function renderImage(idx: number) {
+          const image = new Image()
+          
+          if(data.images[idx]) {
+               image.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
+
+               if(image.complete) {
+                    return
+               }
+
+               image.onload
+          }
+     }
+
 
 </script>
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
-     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}" alt="">
+     <img bind:this={panel} src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" alt="">
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
