@@ -8,10 +8,6 @@
      let panel: any;
      let panelCurrent: any;
 
-     renderImage(data.idx)
-     renderImage(data.idx + 1)
-     renderImage(data.idx + 2)
-
      onMount(() => {
           console.log(panel, panelCurrent)
      })
@@ -36,24 +32,6 @@
 
      function toTopPanel() {
           panel.scrollIntoView()
-
-          renderImage(data.idx + 1)
-          renderImage(data.idx + 2)
-          renderImage(data.idx + 3)
-     }
-
-     function renderImage(idx: number) {
-          const image = new Image()
-          
-          if(data.images[idx]) {
-               image.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
-
-               if(image.complete) {
-                    return
-               }
-
-               image.onload
-          }
      }
 
 
@@ -66,7 +44,28 @@
      alt="" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
      height="{data.images[data.idx - 1].customMetadata.height}">
-     
+
+     <img bind:this={panel}
+     class="hide"
+     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     alt="" 
+     width="{data.images[data.idx - 1].customMetadata.width}" 
+     height="{data.images[data.idx - 1].customMetadata.height}">
+
+     <img bind:this={panel} 
+     class="hide"
+     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     alt="" 
+     width="{data.images[data.idx - 1].customMetadata.width}" 
+     height="{data.images[data.idx - 1].customMetadata.height}">
+
+     <img bind:this={panel} 
+     class="hide"
+     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     alt="" 
+     width="{data.images[data.idx - 1].customMetadata.width}" 
+     height="{data.images[data.idx - 1].customMetadata.height}">
+
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
 
@@ -83,7 +82,13 @@
 
 <style lang="scss">
      img {
+          display: block;
           max-width: 300px;
+          height: auto;
+          object-fit: contain;
+          &.hide {
+               display: none;
+          }
      }
 </style>
 
