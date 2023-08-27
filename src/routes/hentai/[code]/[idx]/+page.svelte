@@ -31,18 +31,20 @@
 
 </script>
 
-<p bind:this={panel}>Hello index { data.idx }</p>
-<button on:click={prevIdx}>prev</button>
-<button on:click={nextIdx}>next</button>
+<div class="read page">
+     <p bind:this={panel}>Hello index { data.idx }</p>
+     <button on:click={prevIdx}>prev</button>
+     <button on:click={nextIdx}>next</button>
 
-<ul>
-     { #each data.images as images, idx }
-          {#if idx + 1 === data.idx }
-               <li bind:this={panelCurrent}>{ images.key }</li>
-          {:else} 
-               <li>{ images.key }</li>
-          {/if}
-     {/each}
-</ul>
+     <ul>
+          { #each data.images as images, idx }
+               {#if idx + 1 === data.idx }
+                    <li bind:this={panelCurrent}>{ images.key }</li>
+               {:else} 
+                    <li>{ images.key }</li>
+               {/if}
+          {/each}
+     </ul>
+</div>
 
 

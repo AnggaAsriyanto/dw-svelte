@@ -23,4 +23,36 @@
   });
 </script>
 
-<slot />
+<header>
+
+</header>
+
+<main>
+  <slot />
+</main>
+
+<footer>
+
+</footer>
+
+<style lang="scss">
+  :global(*) {
+    outline: none;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+  }
+
+  :global(body) {
+    width: 100vw;
+    overflow-x: hidden;
+    background-color: #151515;
+    color: #fefefe;
+  }
+
+  main {
+    position: relative;
+    min-height: 100vh;
+  }
+</style>
