@@ -1,6 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { onMount } from 'svelte';
+	import { onMount, afterUpdate } from 'svelte';
 
      export let data;
      console.log(data)
@@ -15,13 +15,23 @@
           renderImage(data.idx + 2)
      })
 
+     afterUpdate(() => {
+          const panel = document.querySelector("#panel")
+          if(panel) {
+               renderPanel()
+               renderImage(data.idx)
+               renderImage(data.idx + 1)
+               renderImage(data.idx + 2)
+          }
+     })
+
      function nextIdx() {
           if(data.idx === data.images.length) {
                return goto(`/hentai/${data.code}`)
           }
 
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
-          startPanel()
+          // scrollIntoView()
      }
 
      function prevIdx() {
@@ -30,15 +40,10 @@
           }
 
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
-          startPanel()
+          // scrollIntoView()
      }
 
-     function startPanel() {
-          renderPanel()
-          renderImage(data.idx)
-          renderImage(data.idx + 1)
-          renderImage(data.idx + 2)
-
+     function scrollIntoView() {
           const panel = document.querySelector("#panel")
 
           if(panel) {
@@ -127,7 +132,7 @@
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
-     <button on:click={startPanel}>into view</button>
+     <button on:click={scrollIntoView}>into view</button>
 
      <ul>
           { #each data.images as images, idx }
