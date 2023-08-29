@@ -1,6 +1,7 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
+	import Panel from './Panel.svelte';
 
      export let data;
      console.log(data)
@@ -34,9 +35,11 @@
      }
 
      function toTopPanel() {
-          panel.scrollIntoView({
-               behavior: 'instant'
-          })
+          // panel.scrollIntoView({
+          //      behavior: 'instant'
+          // })
+          const panel = document.getElementById('panel')
+          console.log(panel)
 
           renderImage(data.idx)
           renderImage(data.idx + 1)
@@ -65,12 +68,19 @@
 <div class="read page">
      <p>Hello index { data.idx }</p>
 
-     <img bind:this={panel}
+     <Panel 
+          src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp"
+          alt="{data.images[data.idx - 1].key}" 
+          width="{data.images[data.idx - 1].customMetadata.width}"
+          height="{data.images[data.idx - 1].customMetadata.height}"
+     />
+
+     <!-- <img bind:this={panel}
      id="panel"
      src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
      alt="{data.images[data.idx - 1].key}" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}">
+     height="{data.images[data.idx - 1].customMetadata.height}"> -->
 
      <!-- {#if data.images[data.idx]}
           <img 
