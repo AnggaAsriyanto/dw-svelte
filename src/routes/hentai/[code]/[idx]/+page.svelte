@@ -1,20 +1,12 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
-	import { afterUpdate, onMount } from 'svelte';
 
      export let data;
      console.log(data)
 
      let panel: any;
      let panelCurrent: any;
-
-     onMount(() => {
-          console.log(panel, panelCurrent)
-     })
-
-     afterUpdate(() => {
-          console.log('update')
-     })
+     let loadedImages: any = {};
 
      function nextIdx() {
           if(data.idx === data.images.length) {
@@ -35,18 +27,29 @@
      }
 
      function toTopPanel() {
-          // const el = document.getElementById('panel')
-          // if(!el) {
-          //      return
-          // }
-
-          // el.scrollIntoView({
-          //      behavior: 'instant'
-          // })
-          // console.log(el)
           panel.scrollIntoView({
                behavior: 'instant'
           })
+
+          renderImage(data.idx)
+          renderImage(data.idx + 1)
+          renderImage(data.idx + 2)
+     }
+
+     function renderImage(idx: number) {
+          const img = new Image();
+
+          if(data.images[idx]) {
+               img.src = 'https://overdoujin.gumlet.io' + data.images[idx].key + '?format=webp';
+
+               if(loadedImages[img.src]) {
+                    return
+               }
+
+               img.onload = function() {
+                    loadedImages[img.src] = true;
+               }
+          }
      }
 
 
@@ -54,6 +57,7 @@
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
+     
      <img bind:this={panel}
      id="panel"
      src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
@@ -61,7 +65,7 @@
      width="{data.images[data.idx - 1].customMetadata.width}" 
      height="{data.images[data.idx - 1].customMetadata.height}">
 
-     {#if data.images[data.idx]}
+     <!-- {#if data.images[data.idx]}
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
@@ -87,7 +91,7 @@
           alt="{data.images[data.idx + 2].key}" 
           width="{data.images[data.idx + 2].customMetadata.width}" 
           height="{data.images[data.idx + 2].customMetadata.height}">
-     {/if}
+     {/if} -->
      
 
      <button on:click={prevIdx}>prev</button>
