@@ -69,9 +69,12 @@
 
           const img = new Image();
           img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp';
-          panel.src = img.src + '&q=5'
 
-          
+          if(loadedImages[img.src]) {
+               return
+          }
+
+          panel.src = img.src + '&q=5' 
           img.onload = function() {
                panel.src = img.src
           }
