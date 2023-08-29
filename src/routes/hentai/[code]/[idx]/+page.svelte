@@ -1,5 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
+	import { onMount } from 'svelte';
 
      export let data;
      console.log(data)
@@ -7,6 +8,12 @@
      let panel: any;
      let panelCurrent: any;
      let loadedImages: any = {};
+
+     onMount(() => {
+          renderImage(data.idx)
+          renderImage(data.idx + 1)
+          renderImage(data.idx + 2)
+     })
 
      function nextIdx() {
           if(data.idx === data.images.length) {
@@ -40,7 +47,7 @@
           const img = new Image();
 
           if(data.images[idx]) {
-               img.src = 'https://overdoujin.gumlet.io' + data.images[idx].key + '?format=webp';
+               img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp';
 
                if(loadedImages[img.src]) {
                     return
@@ -57,7 +64,7 @@
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
-     
+
      <img bind:this={panel}
      id="panel"
      src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
