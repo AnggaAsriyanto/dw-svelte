@@ -10,7 +10,6 @@
      let loadedImages: any = {};
 
      onMount(() => {
-          renderPanel()
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -89,7 +88,7 @@
 
      <img bind:this={panel}
           id="panel"
-          src=""
+          src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
           alt="{data.images[data.idx - 1].key}" 
           width="{data.images[data.idx - 1].customMetadata.width}" 
           height="{data.images[data.idx - 1].customMetadata.height}"
