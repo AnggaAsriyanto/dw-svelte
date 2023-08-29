@@ -21,7 +21,7 @@
           }
 
           goto(`/hentai/${data.code}/${data.idx + 1}`, { replaceState: true })
-          toTopPanel()
+          startPanel()
      }
 
      function prevIdx() {
@@ -30,18 +30,20 @@
           }
 
           goto(`/hentai/${data.code}/${data.idx - 1}`, { replaceState: true })
-          toTopPanel()
+          startPanel()
      }
 
-     function toTopPanel() {
-          panel.scrollIntoView({
-               behavior: 'instant'
-          })
-
+     function startPanel() {
           renderPanel()
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
+
+          const panel = document.querySelector("#panel")
+
+          if(panel) {
+               panel.scrollIntoView()
+          }
      }
 
      function renderImage(idx: number) {
@@ -65,7 +67,7 @@
           
           if (panel) {
                const newPanel = document.createElement("img")
-               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx].key + '?format=webp';
+               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 1].key + '?format=webp';
                newPanel.id = 'panel';
                newPanel.alt = data.images[data.idx - 1].key;
                newPanel.width = data.images[data.idx - 1].customMetadata.width;
@@ -125,7 +127,7 @@
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
-     <button on:click={toTopPanel}>into view</button>
+     <button on:click={startPanel}>into view</button>
 
      <ul>
           { #each data.images as images, idx }
