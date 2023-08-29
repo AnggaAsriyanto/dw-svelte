@@ -10,6 +10,7 @@
      let loadedImages: any = {};
 
      onMount(() => {
+          renderPanel()
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -38,6 +39,7 @@
                behavior: 'instant'
           })
 
+          renderPanel()
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -59,17 +61,33 @@
           }
      }
 
+     function renderPanel() {
+          const panel = document.querySelector("#panel")
+          
+          if (panel) {
+               const newPanel = document.createElement("img")
+               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx].key + '?format=webp';
+               newPanel.id = 'panel';
+               newPanel.alt = data.images[data.idx - 1].key;
+               newPanel.width = data.images[data.idx - 1].customMetadata.width;
+               newPanel.height = data.images[data.idx - 1].customMetadata.height;
+
+               panel.parentNode?.replaceChild(newPanel, panel)
+          }
+     }
+
 </script>
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
 
      <img bind:this={panel}
-     id="panel"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
-     alt="{data.images[data.idx - 1].key}" 
-     width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}">
+          id="panel"
+          src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+          alt="{data.images[data.idx - 1].key}" 
+          width="{data.images[data.idx - 1].customMetadata.width}" 
+          height="{data.images[data.idx - 1].customMetadata.height}"
+     >
 
      <!-- {#if data.images[data.idx]}
           <img 
