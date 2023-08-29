@@ -67,11 +67,11 @@
           
           if (panel) {
                const newPanel = document.createElement("img")
-               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 2].key + '?format=webp';
+               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx].key + '?format=webp';
                newPanel.id = 'panel';
-               newPanel.alt = data.images[data.idx - 2].key;
-               newPanel.width = data.images[data.idx - 2].customMetadata.width;
-               newPanel.height = data.images[data.idx - 2].customMetadata.height;
+               newPanel.alt = data.images[data.idx].key;
+               newPanel.width = data.images[data.idx].customMetadata.width;
+               newPanel.height = data.images[data.idx].customMetadata.height;
                
                newPanel.style.display = "block";
                newPanel.style.maxWidth = "300px";
