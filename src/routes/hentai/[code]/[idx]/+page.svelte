@@ -10,7 +10,6 @@
      let loadedImages: any = {};
 
      onMount(() => {
-          renderPanel(data.idx - 1)
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -39,7 +38,6 @@
                behavior: 'instant'
           })
 
-          renderPanel(data.idx - 1)
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -61,26 +59,6 @@
           }
      }
 
-     function renderPanel(idx: number) {
-          const panel = document.getElementById('panel') as HTMLImageElement
-          if (!panel) {
-               return
-          }
-
-          const img = new Image();
-          img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp';
-
-          if(loadedImages[img.src]) {
-               return
-          }
-
-          panel.src = img.src + '&q=5' 
-          img.onload = function() {
-               panel.src = img.src
-          }
-     }
-
-
 </script>
 
 <div class="read page">
@@ -88,7 +66,7 @@
 
      <img bind:this={panel}
      id="panel"
-     src="" 
+     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
      alt="{data.images[data.idx - 1].key}" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
      height="{data.images[data.idx - 1].customMetadata.height}">
