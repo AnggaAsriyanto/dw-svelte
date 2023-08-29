@@ -71,6 +71,12 @@
                newPanel.alt = data.images[data.idx - 1].key;
                newPanel.width = data.images[data.idx - 1].customMetadata.width;
                newPanel.height = data.images[data.idx - 1].customMetadata.height;
+               
+               newPanel.style.display = "block";
+               newPanel.style.maxWidth = "300px";
+               newPanel.style.height = "auto";
+               newPanel.style.objectFit = "contain";
+               newPanel.style.backgroundColor = "gray";
 
                panel.parentNode?.replaceChild(newPanel, panel)
           }
@@ -83,7 +89,7 @@
 
      <img bind:this={panel}
           id="panel"
-          src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+          src=""
           alt="{data.images[data.idx - 1].key}" 
           width="{data.images[data.idx - 1].customMetadata.width}" 
           height="{data.images[data.idx - 1].customMetadata.height}"
@@ -140,9 +146,6 @@
           height: auto;
           object-fit: contain;
           background-color: gray;
-          &.hide {
-               display: none;
-          }
      }
 </style>
 
