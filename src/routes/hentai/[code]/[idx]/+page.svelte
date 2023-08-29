@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { goto } from '$app/navigation';
 	import { onMount } from 'svelte';
-	import Panel from './Panel.svelte';
 
      export let data;
      console.log(data)
@@ -11,6 +10,7 @@
      let loadedImages: any = {};
 
      onMount(() => {
+          renderPanel(data.idx - 1)
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -35,12 +35,11 @@
      }
 
      function toTopPanel() {
-          // panel.scrollIntoView({
-          //      behavior: 'instant'
-          // })
-          const panel = document.getElementById('panel')
-          console.log(panel)
+          panel.scrollIntoView({
+               behavior: 'instant'
+          })
 
+          renderPanel(data.idx - 1)
           renderImage(data.idx)
           renderImage(data.idx + 1)
           renderImage(data.idx + 2)
@@ -62,25 +61,34 @@
           }
      }
 
+     function renderPanel(idx: number) {
+          const panel = document.getElementById('panel') as HTMLImageElement
+          if (!panel) {
+               return
+          }
+
+          const img = new Image();
+          img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp';
+          panel.src = img.src + '&q=5'
+
+          
+          img.onload = function() {
+               panel.src = img.src
+          }
+     }
+
 
 </script>
 
 <div class="read page">
      <p>Hello index { data.idx }</p>
 
-     <Panel 
-          src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp"
-          alt="{data.images[data.idx - 1].key}" 
-          width="{data.images[data.idx - 1].customMetadata.width}"
-          height="{data.images[data.idx - 1].customMetadata.height}"
-     />
-
-     <!-- <img bind:this={panel}
+     <img bind:this={panel}
      id="panel"
-     src="https://overdoujin.gumlet.io/{data.images[data.idx - 1].key}?format=webp" 
+     src="" 
      alt="{data.images[data.idx - 1].key}" 
      width="{data.images[data.idx - 1].customMetadata.width}" 
-     height="{data.images[data.idx - 1].customMetadata.height}"> -->
+     height="{data.images[data.idx - 1].customMetadata.height}">
 
      <!-- {#if data.images[data.idx]}
           <img 

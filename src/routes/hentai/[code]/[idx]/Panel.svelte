@@ -26,9 +26,9 @@
 </script>
 
 {#if loaded}
-	<img {src} {alt} {width} {height} id="panel"/>
+	<img {src} {alt} {width} {height}/>
 {:else if failed}
-	<img src="{src + '&q=10'}" alt="Not Found" id="panel"/>
+	<img src="{src + '&q=10'}" alt="Not Found"/>
 {:else if loading}
-	<img src="{src + '&q=10'}" alt="Loading..." id="panel"/>
+	<img src="{src + '&q=10'}" alt="Loading..."/>
 {/if}
