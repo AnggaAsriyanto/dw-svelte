@@ -9,12 +9,6 @@
      let panelCurrent: any;
      let loadedImages: any = {};
 
-     onMount(() => {
-          renderImage(data.idx)
-          renderImage(data.idx + 1)
-          renderImage(data.idx + 2)
-     })
-
      afterUpdate(() => {
           const panel = document.querySelector("#panel")
           if(panel) {
@@ -54,13 +48,14 @@
 
      function renderImage(idx: number) {
           const img = new Image();
+          const src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
+
+          if(loadedImages[src]) {
+               return
+          }
 
           if(data.images[idx]) {
-               img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp';
-
-               if(loadedImages[img.src]) {
-                    return
-               }
+               img.src = src
 
                img.onload = function() {
                     loadedImages[img.src] = true;
