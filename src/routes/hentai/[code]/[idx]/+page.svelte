@@ -143,6 +143,9 @@
           height: auto;
           object-fit: contain;
           background-color: gray;
+          &.hide {
+               display: none;
+          }
      }
 </style>
 
