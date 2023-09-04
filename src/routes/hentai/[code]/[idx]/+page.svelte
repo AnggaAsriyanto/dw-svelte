@@ -51,10 +51,8 @@
 
           if(data.images[idx]) {
                img.src = src
-
-               img.onload = function() {
-                    loadedImages[img.src] = true;
-               }
+               loadedImages[img.src] = true;
+               console.log(loadedImages)
           }
      }
 
@@ -76,6 +74,10 @@
                newPanel.style.backgroundColor = "gray";
 
                panel.parentNode?.replaceChild(newPanel, panel)
+
+               renderImage(data.idx)
+               renderImage(data.idx + 1)
+               renderImage(data.idx + 2)
           }
      }
 
@@ -92,7 +94,7 @@
           height="{data.images[data.idx - 1].customMetadata.height}"
      >
 
-     {#if data.images[data.idx]}
+     <!-- {#if data.images[data.idx]}
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
@@ -118,7 +120,7 @@
           alt="{data.images[data.idx + 2].key}" 
           width="{data.images[data.idx + 2].customMetadata.width}" 
           height="{data.images[data.idx + 2].customMetadata.height}">
-     {/if}
+     {/if} -->
      
 
      <button on:click={prevIdx}>prev</button>

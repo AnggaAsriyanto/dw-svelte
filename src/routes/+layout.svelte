@@ -1,6 +1,7 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
   import { invalidate } from '$app/navigation'
+	import { navigating } from '$app/stores';
   import { onMount } from 'svelte'
 
   export let data
@@ -22,6 +23,10 @@
     return () => subscription.unsubscribe()
   });
 </script>
+
+{#if $navigating}
+  <p>Loading..</p>
+{/if}
 
 <header>
 
