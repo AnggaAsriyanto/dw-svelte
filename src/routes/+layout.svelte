@@ -75,10 +75,4 @@
   .load-bar.loading {
     transform: scaleX(1);
   }
-
-  .load-bar.loaded {
-    opacity: 0;
-    transform: scaleX(1);
-    transition: opacity transform .1s; 
-  }
 </style>
