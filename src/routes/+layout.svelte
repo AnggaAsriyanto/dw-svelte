@@ -62,7 +62,7 @@
   .load-bar {
     position: fixed;
     top: 0;
-    right: 0;
+    left: 0;
     width: 100%;
     height: 3px;
     background-color: #007bff;
@@ -74,5 +74,9 @@
 
   .load-bar.loading {
     transform: scaleX(1);
+  }
+
+  .load-bar.loaded {
+    opacity: 0;
   }
 </style>
