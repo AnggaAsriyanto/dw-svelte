@@ -7,6 +7,7 @@
   export let data
 
   console.log(data.session)
+  let loading = navigating
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
@@ -24,9 +25,7 @@
   });
 </script>
 
-{#if $navigating}
-  <p>Loading..</p>
-{/if}
+<div class="load-bar { $navigating ? 'loading' : 'loaded'}">{ loading }</div>
 
 <header>
 
@@ -59,5 +58,28 @@
   main {
     position: relative;
     min-height: 100vh;
+  }
+
+  .load-bar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background-color: #007bff;
+    z-index: 9999;
+    transform-origin: 100% 0;
+    transform: scaleX(0);
+    transition: transform 1s ease-out;
+  }
+
+  .load-bar.loading {
+    transform: scaleX(1);
+  }
+
+  .load-bar.loaded {
+    opacity: 0;
+    transform: scaleX(1);
+    transition: .1s;
   }
 </style>
