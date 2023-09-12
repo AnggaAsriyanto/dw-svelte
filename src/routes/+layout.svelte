@@ -67,7 +67,7 @@
     height: 3px;
     background-color: #007bff;
     z-index: 9999;
-    transform-origin: 100% 0;
+    transform-origin: 0 100%;
     transform: scaleX(0);
     transition: transform 1s ease-out;
   }
