@@ -16,7 +16,7 @@
                renderImage(data.idx - 1)
                renderImage(data.idx)
                renderImage(data.idx + 1)
-               // renderPanel()
+               renderPanel()
           }
      })
 
@@ -65,11 +65,6 @@
 
           img.onload = () => {
                loadedImages[idx].loaded = true;
-
-               if(data.idx - 1 == idx) {
-                    console.log(data.idx - 1, idx)
-                    renderPanel()
-               }
           }
      }
 
