@@ -65,7 +65,7 @@
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: #007bff;
+    background-color: #f700ff;
     z-index: 9999;
     transform-origin: 0 100%;
     transform: scaleX(0);
