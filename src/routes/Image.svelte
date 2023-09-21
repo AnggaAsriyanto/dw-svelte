@@ -18,3 +18,9 @@
 </script>
 
 <img class="img" srcset={generateSrcset(src, sizes, quality, fit)} src={src} alt={alt} width={width} height={height} />
+
+<style>
+  .img {
+    max-width: 300px;
+  }
+</style>
