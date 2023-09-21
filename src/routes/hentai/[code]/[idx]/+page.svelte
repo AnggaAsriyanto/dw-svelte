@@ -13,9 +13,10 @@
           const panel = document.querySelector("#panel")
           if(panel) {
                console.log('updated')
-               renderImage(data.idx - 1)
-               renderImage(data.idx)
-               renderImage(data.idx + 1)
+               // renderImage(data.idx - 1)
+               // renderImage(data.idx)
+               // renderImage(data.idx + 1)
+               preloadImage(3)
                renderPanel()
           }
      })
@@ -44,6 +45,14 @@
           }
      }
 
+     function preloadImage(num: number) {
+          renderImage(data.idx - 1)
+
+          for(let i = 0; i < num; i++) {
+               renderImage(data.idx + i)
+          }
+     }
+
      function renderImage(idx: number) {
           if(loadedImages[idx]) {
                return loadedImages[idx]
@@ -63,22 +72,24 @@
                console.log(loadedImages)
           }
 
-          img.onload = () => {
+          const onLoad = () => {
                loadedImages[idx].loaded = true;
           }
+
+          const onFail = () => {
+               const imageFail = loadedImages[idx]
+          }
+
+          img.onload = onLoad;
+          img.onerror = onFail;
      }
 
      function renderPanel() {
           const panel = document.querySelector("#panel")
           
           if (panel) {
-               // const newPanel = document.createElement("img")
                const newPanel = loadedImages[data.idx - 1].image;
-               // newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 1].key + '?format=webp';
                newPanel.id = 'panel';
-               // newPanel.width = data.images[data.idx - 1].customMetadata.width;
-               // newPanel.height = data.images[data.idx - 1].customMetadata.height;
-               
                newPanel.style.display = "block";
                newPanel.style.maxWidth = "300px";
                newPanel.style.height = "auto";
@@ -100,36 +111,7 @@
           alt="{data.images[data.idx - 1].key}" 
           width="{data.images[data.idx - 1].customMetadata.width}" 
           height="{data.images[data.idx - 1].customMetadata.height}"
-     >
-
-     <!-- {#if data.images[data.idx]}
-          <img 
-          class="hide"
-          src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
-          alt="{data.images[data.idx].key}" 
-          width="{data.images[data.idx].customMetadata.width}" 
-          height="{data.images[data.idx].customMetadata.height}">
-     {/if}
-
-     {#if data.images[data.idx + 1]}
-          <img 
-          class="hide"
-          src="https://overdoujin.gumlet.io/{data.images[data.idx + 1].key}?format=webp" 
-          alt="{data.images[data.idx + 1].key}" 
-          width="{data.images[data.idx + 1].customMetadata.width}" 
-          height="{data.images[data.idx + 1].customMetadata.height}">
-     {/if}
-
-
-     {#if data.images[data.idx + 2]}
-          <img 
-          class="hide"
-          src="https://overdoujin.gumlet.io/{data.images[data.idx + 2].key}?format=webp" 
-          alt="{data.images[data.idx + 2].key}" 
-          width="{data.images[data.idx + 2].customMetadata.width}" 
-          height="{data.images[data.idx + 2].customMetadata.height}">
-     {/if} -->
-     
+     >   
 
      <button on:click={prevIdx}>prev</button>
      <button on:click={nextIdx}>next</button>
@@ -153,9 +135,6 @@
           height: auto;
           object-fit: contain;
           background-color: gray;
-          &.hide {
-               display: none;
-          }
      }
 </style>
 
