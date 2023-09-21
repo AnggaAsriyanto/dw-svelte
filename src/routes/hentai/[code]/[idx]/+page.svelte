@@ -50,10 +50,9 @@
           }
 
           const img = new Image();
-          const src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
 
           if(data.images[idx]) {
-               img.src = src
+               img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
                img.width = data.images[idx].customMetadata.width
                img.height = data.images[idx].customMetadata.height
 
@@ -63,13 +62,18 @@
                };
                console.log(loadedImages)
           }
+
+          img.onload = () => {
+               loadedImages[idx].loaded = true;
+          }
      }
 
      function renderPanel() {
           const panel = document.querySelector("#panel")
           
           if (panel) {
-               const newPanel = document.createElement("img")
+               // const newPanel = document.createElement("img")
+               const newPanel = new Image();
                newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 1].key + '?format=webp';
                newPanel.id = 'panel';
                newPanel.width = data.images[data.idx - 1].customMetadata.width;
