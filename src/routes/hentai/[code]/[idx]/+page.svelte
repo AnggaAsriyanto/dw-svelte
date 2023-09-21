@@ -55,6 +55,7 @@
                img.src = 'https://overdoujin.gumlet.io/' + data.images[idx].key + '?format=webp'
                img.width = data.images[idx].customMetadata.width
                img.height = data.images[idx].customMetadata.height
+               img.id = 'panel'
 
                loadedImages[idx] = {
                     image: img,
@@ -65,6 +66,10 @@
 
           img.onload = () => {
                loadedImages[idx].loaded = true;
+
+               if(data.idx - 1 === idx) {
+                    renderPanel()
+               }
           }
      }
 
@@ -73,11 +78,11 @@
           
           if (panel) {
                // const newPanel = document.createElement("img")
-               const newPanel = new Image();
-               newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 1].key + '?format=webp';
-               newPanel.id = 'panel';
-               newPanel.width = data.images[data.idx - 1].customMetadata.width;
-               newPanel.height = data.images[data.idx - 1].customMetadata.height;
+               const newPanel = loadedImages[data.idx - 1].image;
+               // newPanel.src = 'https://overdoujin.gumlet.io/' + data.images[data.idx - 1].key + '?format=webp';
+               // newPanel.id = 'panel';
+               // newPanel.width = data.images[data.idx - 1].customMetadata.width;
+               // newPanel.height = data.images[data.idx - 1].customMetadata.height;
                
                newPanel.style.display = "block";
                newPanel.style.maxWidth = "300px";
