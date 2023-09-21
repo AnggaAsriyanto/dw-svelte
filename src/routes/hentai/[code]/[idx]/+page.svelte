@@ -98,7 +98,7 @@
           height="{data.images[data.idx - 1].customMetadata.height}"
      >
 
-     {#if data.images[data.idx]}
+     <!-- {#if data.images[data.idx]}
           <img 
           class="hide"
           src="https://overdoujin.gumlet.io/{data.images[data.idx].key}?format=webp" 
@@ -124,7 +124,7 @@
           alt="{data.images[data.idx + 2].key}" 
           width="{data.images[data.idx + 2].customMetadata.width}" 
           height="{data.images[data.idx + 2].customMetadata.height}">
-     {/if}
+     {/if} -->
      
 
      <button on:click={prevIdx}>prev</button>
