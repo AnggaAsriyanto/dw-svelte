@@ -9,7 +9,7 @@
      let panelCurrent: any;
      let loadedImages: any = {};
 
-     let preloadTotal: number = 3;
+     let preloadTotal = 3;
 
      afterUpdate(() => {
           const panel = document.querySelector("#panel")

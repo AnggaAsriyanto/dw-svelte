@@ -2,14 +2,27 @@
 <script lang="ts">
   import { invalidate } from '$app/navigation'
 	import { navigating } from '$app/stores';
-  import { onMount } from 'svelte'
+  import { afterUpdate, onMount } from 'svelte'
 
   export let data
+  let loadingTimeout: any;
+  let loadingWait: any;
 
   console.log(data.session)
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
+  $: {
+    if(navigating) {
+      console.log('load')
+      loadingTimeout = setTimeout(() => {
+        loadingWait = true
+      }, 100)
+    } else {
+      clearTimeout(loadingTimeout)
+      loadingWait = false
+    }
+  }
 
   onMount(() => {
     const {
@@ -22,9 +35,23 @@
 
     return () => subscription.unsubscribe()
   });
+
+  function setNavigating() {
+    const loadBar = document.querySelector(".load-bar");
+    
+    if (navigating) {
+      clearTimeout(loadingTimeout);
+      loadingTimeout = setTimeout(() => {
+        loadBar?.classList.add("loading");
+      }, 100);
+    } else {
+      clearTimeout(loadingTimeout);
+      loadBar?.classList.remove("loading");
+    }
+  }
 </script>
 
-<div class="load-bar { $navigating ? 'loading' : 'loaded'}"></div>
+<div class="load-bar { $navigating && loadingWait ? 'loading' : 'loaded'}"></div>
 
 <header>
 

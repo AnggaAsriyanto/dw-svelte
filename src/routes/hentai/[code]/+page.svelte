@@ -32,7 +32,5 @@
 </ul>
 
 <style lang="scss">
-     .img {
-          max-width: 300px;
-     }
+     
 </style>
