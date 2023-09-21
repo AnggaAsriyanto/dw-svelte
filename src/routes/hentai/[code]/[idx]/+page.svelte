@@ -16,7 +16,7 @@
                renderImage(data.idx - 1)
                renderImage(data.idx)
                renderImage(data.idx + 1)
-               renderPanel()
+               // renderPanel()
           }
      })
 
