@@ -9,14 +9,12 @@
      let panelCurrent: any;
      let loadedImages: any = {};
 
+     let preloadTotal: number = 3;
+
      afterUpdate(() => {
           const panel = document.querySelector("#panel")
           if(panel) {
-               console.log('updated')
-               // renderImage(data.idx - 1)
-               // renderImage(data.idx)
-               // renderImage(data.idx + 1)
-               preloadImage(3)
+               preloadImage(preloadTotal)
                renderPanel()
           }
      })
