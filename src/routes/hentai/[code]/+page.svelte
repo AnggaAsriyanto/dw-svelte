@@ -1,5 +1,5 @@
 <script lang="ts">
-	import Image from "../../../components/Image.svelte";
+	import Image from "../../Image.svelte";
      import type { LayoutServerData } from "../../hentai/[code]/$types";
 
      export let data: LayoutServerData
