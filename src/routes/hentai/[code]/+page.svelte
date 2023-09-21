@@ -15,8 +15,8 @@
 <Image 
      src={urlImage}
      sizes="sm:250 md:300 lg:600" 
-     width={data.images.customMetadata.width} 
-     height={data.images.customMetadata.height} 
+     width={null} 
+     height={null} 
      alt={data.content.title} 
      quality="80"
      fit="fill"
