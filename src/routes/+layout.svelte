@@ -12,17 +12,16 @@
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
-  $: {
-    if(navigating) {
+  $: if(navigating) {
       console.log('load')
       loadingTimeout = setTimeout(() => {
         loadingWait = true
       }, 100)
     } else {
       clearTimeout(loadingTimeout)
+      console.log('clear')
       loadingWait = false
     }
-  }
 
   onMount(() => {
     const {
