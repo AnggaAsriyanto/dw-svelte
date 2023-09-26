@@ -89,7 +89,7 @@
                const newPanel = loadedImages[data.idx - 1].image;
                newPanel.id = 'panel';
                newPanel.style.display = "block";
-               newPanel.style.height = "100%";
+               newPanel.style.maxWidth = "100%";
                newPanel.style.objectFit = "contain";
                // newPanel.style.backgroundColor = "gray";
 
