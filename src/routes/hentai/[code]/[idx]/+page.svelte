@@ -90,6 +90,8 @@
                newPanel.id = 'panel';
                newPanel.style.display = "block";
                newPanel.style.maxWidth = "100%";
+               newPanel.style.width = "100%";
+               newPanel.style.height = "100%";
                newPanel.style.objectFit = "contain";
                // newPanel.style.backgroundColor = "gray";
 
