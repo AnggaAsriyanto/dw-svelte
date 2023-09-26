@@ -89,10 +89,9 @@
                const newPanel = loadedImages[data.idx - 1].image;
                newPanel.id = 'panel';
                newPanel.style.display = "block";
-               newPanel.style.maxWidth = "300px";
-               newPanel.style.height = "auto";
+               newPanel.style.height = "100%";
                newPanel.style.objectFit = "contain";
-               newPanel.style.backgroundColor = "gray";
+               // newPanel.style.backgroundColor = "gray";
 
                panel.parentNode?.replaceChild(newPanel, panel)
           }
