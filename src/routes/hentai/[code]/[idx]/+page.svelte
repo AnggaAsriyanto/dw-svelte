@@ -377,14 +377,6 @@
                }
           }
      }
-
-     // img {
-     //      display: block;
-     //      max-width: 300px;
-     //      height: auto;
-     //      object-fit: contain;
-     //      background-color: gray;
-     // }
 </style>
 
 
