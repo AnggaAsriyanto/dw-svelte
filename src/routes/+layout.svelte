@@ -17,7 +17,7 @@
 
   $: if ($navigating) {
     timeout = setTimeout(() => {
-      isLoading = $navigating;
+      isLoading = true;
     }, 1000);
   }
 
