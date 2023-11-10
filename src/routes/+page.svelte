@@ -9,7 +9,6 @@
 <h1>Welcome to SvelteKit</h1>
 <p>Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation</p>
 
-{#each data.contents as content }
 <div class="home-page">
      <section class="group-section">
           <h2><i>N</i> Latest Uploads</h2>
@@ -22,7 +21,6 @@
 <!-- <li>
      <a href="/hentai/{content.code}">{content.title}</a>
 </li> -->
-{/each}
 
 <style lang="scss" scoped>
 </style>
