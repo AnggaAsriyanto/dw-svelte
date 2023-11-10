@@ -72,7 +72,7 @@
     min-height: 100vh;
   }
 
-  .group-section {
+  :global(.group-section) {
     text-align: center;
     color: #eaeaea;
     background-color: #000000;
@@ -101,7 +101,7 @@
     }
   }
 
-  .group-posts {
+  :global(.group-posts) {
     padding: .5rem;
     width: 100%;
     height: max-content;
