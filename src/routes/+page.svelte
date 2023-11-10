@@ -7,11 +7,11 @@
 
 <div class="home-page">
      <section class="group-section">
-          <h2><i>N</i> Latest Uploads</h2>
+          <h2><i class="bi bi-lightning-fill"></i> Latest Uploads</h2>
           <div class="group-posts">
                <Card posts="{data.contents}"/>
           </div>
-          <a href="/hentai" class="more">More Latest <i>N</i></a>
+          <a href="/hentai" class="more">More Latest <i class="bi bi-arrow-right"></i></a>
      </section>
 </div>
 
