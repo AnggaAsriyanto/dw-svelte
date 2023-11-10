@@ -52,15 +52,16 @@
 </footer>
 
 <style lang="scss">
+  :global(p, h1, h2, h3, h4, h5) {
+    margin-bottom: 0;
+  }
+  
   :global(*) {
     outline: none;
     list-style: none;
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    p, h1, h2, h3, h4, h5 {
-      margin-bottom: 0;
-    }
   }
 
   :global(body) {
