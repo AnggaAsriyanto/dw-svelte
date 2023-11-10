@@ -11,7 +11,7 @@
                <div class="post-img">
                     <div class="img-cont" style="aspect-ratio: {post.cover_ratio }">
                          <Image 
-                         sizes="sm:150px md:300px lg:600px"
+                         sizes="sm:150 md:300 lg:600"
                          quality="60"
                          loading="lazy"
                          fit="crop"
