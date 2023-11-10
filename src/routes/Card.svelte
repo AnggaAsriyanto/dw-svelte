@@ -14,7 +14,7 @@
                          sizes="sm:150px md:300px lg:600px"
                          quality="60"
                          loading="lazy"
-                         fit="cover"
+                         fit="crop"
                          src="{post.code}"
                          alt="{post.title}"
                          title="{post.title}"

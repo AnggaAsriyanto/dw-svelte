@@ -11,7 +11,8 @@
 </script>
 
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
-<Image 
+<div class="img-container">
+     <Image 
      src={data.content.code}
      sizes="sm:250 md:300 lg:600" 
      width={null} 
@@ -21,7 +22,8 @@
      fit="fill"
      title={data.content.title}
      loading={null}
-/>
+     />
+</div>
 <p>{ data.content.code }</p>
 <ul>
      {#each data.images as image, index}
@@ -34,5 +36,8 @@
 </ul>
 
 <style lang="scss">
-     
+     .img-container {
+          width: 300px;
+          max-width: 300px;
+     }
 </style>
