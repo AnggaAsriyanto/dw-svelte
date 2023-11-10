@@ -9,17 +9,20 @@
   let loadingWait: any;
 
   let isLoading: any = false;
+  let timeout: any;
   console.log(data.session)
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
 
   $: if ($navigating) {
-    isLoading = true;
-    setTimeout(() => {
+    timeout = setTimeout(() => {
       isLoading = $navigating;
-    }, 10000);
-  } else {
+    }, 1000);
+  }
+
+  $: if (!$navigating) {
+    clearTimeout(timeout);
     isLoading = false;
   }
 
