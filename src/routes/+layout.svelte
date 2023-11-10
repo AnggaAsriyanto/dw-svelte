@@ -13,12 +13,12 @@
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
-  
+
   $: if ($navigating) {
     isLoading = true;
     setTimeout(() => {
       isLoading = $navigating;
-    }, 1000);
+    }, 10000);
   } else {
     isLoading = false;
   }
