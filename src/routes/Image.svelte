@@ -6,6 +6,8 @@
   export let alt: any;
   export let width: any;
   export let height: any;
+  export let loading: any;
+  export let title: any;
 
   function generateSrcset(src: any, sizes: string | String, quality: Number, fit: String) {
     const sizeArray = sizes.split(" ");
@@ -17,7 +19,7 @@
   }
 </script>
 
-<img class="img" srcset={generateSrcset(src, sizes, quality, fit)} src={src} alt={alt} width={width} height={height} />
+<img class="img" srcset={generateSrcset(src, sizes, quality, fit)} src={src} alt={alt} width={width} height={height} loading={loading} title={title}/>
 
 <style>
   .img {

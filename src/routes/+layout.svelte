@@ -5,9 +5,7 @@
   import { afterUpdate, onMount } from 'svelte'
 
   export let data
-  let loadingTimeout: any;
-  let loadingWait: any;
-
+  
   let isLoading: any = false;
   let timeout: any;
   console.log(data.session)
@@ -37,20 +35,6 @@
 
     return () => subscription.unsubscribe()
   });
-
-  function setNavigating() {
-    const loadBar = document.querySelector(".load-bar");
-    
-    if (navigating) {
-      clearTimeout(loadingTimeout);
-      loadingTimeout = setTimeout(() => {
-        loadBar?.classList.add("loading");
-      }, 100);
-    } else {
-      clearTimeout(loadingTimeout);
-      loadBar?.classList.remove("loading");
-    }
-  }
 </script>
 
 <div class="load-bar { isLoading ? 'loading' : 'loaded'}"></div>
@@ -86,6 +70,54 @@
   main {
     position: relative;
     min-height: 100vh;
+  }
+
+  .group-section {
+    text-align: center;
+    color: #eaeaea;
+    background-color: #000000;
+    border-radius: 3px;
+    padding-top: 1rem;
+    height: auto;
+    h2 {
+          font-size: 1.1rem;
+    }
+    .icon-title {
+          color: #fff;
+    }
+    .more {
+          display: inline-block;
+          color: inherit;
+          text-decoration: none;
+          padding: .4rem .5rem;
+          border-radius: 4px;
+          margin-top: .5rem;
+          margin-bottom: .7rem;
+          font-size: .85rem;
+          background-color: #373737;
+          &:active {
+              transform: scale(.95);
+          }
+    }
+  }
+
+  .group-posts {
+    padding: .5rem;
+    width: 100%;
+    height: max-content;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: .5rem .1rem;
+    border-radius: 3px;
+    padding-top: 1rem;
+    @media (min-width: 550px) {
+          padding: 1.5rem;
+          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+          gap: .5rem .3rem;       
+    };
+    @media (min-width: 1000px) {
+          padding: 1.5rem 1.5rem .5rem;
+    }
   }
 
   .load-bar {

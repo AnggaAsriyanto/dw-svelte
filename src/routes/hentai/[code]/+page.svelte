@@ -19,6 +19,8 @@
      alt={data.content.title} 
      quality="80"
      fit="fill"
+     title={data.content.title}
+     loading={null}
 />
 <p>{ data.content.code }</p>
 <ul>
