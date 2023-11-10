@@ -8,20 +8,20 @@
   let loadingTimeout: any;
   let loadingWait: any;
 
+  let isLoading: any = false;
   console.log(data.session)
 
   let { supabase, session } = data
   $: ({ supabase, session } = data)
-  $: if(navigating) {
-      console.log('load')
-      loadingTimeout = setTimeout(() => {
-        loadingWait = true
-      }, 100)
-    } else {
-      clearTimeout(loadingTimeout)
-      console.log('clear')
-      loadingWait = false
-    }
+  
+  $: if ($navigating) {
+    isLoading = true;
+    setTimeout(() => {
+      isLoading = $navigating;
+    }, 1000);
+  } else {
+    isLoading = false;
+  }
 
   onMount(() => {
     const {
@@ -50,7 +50,7 @@
   }
 </script>
 
-<div class="load-bar { $navigating && loadingWait ? 'loading' : 'loaded'}"></div>
+<div class="load-bar { isLoading ? 'loading' : 'loaded'}"></div>
 
 <header>
 

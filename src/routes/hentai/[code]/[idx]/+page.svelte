@@ -132,6 +132,7 @@
 
           <div class="menu-bar">
                <div class="btn-bar">
+                    <button>S</button>
                </div>
                <div class="bar">
                     <div class="btn-bar">
@@ -158,21 +159,6 @@
                     width="{data.images[data.idx - 1].customMetadata.width}" 
                     height="{data.images[data.idx - 1].customMetadata.height}"
                >
-
-               <!-- <div class="img-cont">
-                    <NuxtImg
-                    v-for="(img, idx) in image"
-                    :key="idx"
-                    provider="gumlet"
-                    loading="lazy"
-                    :src="img.key"
-                    :alt="img.key"
-                    :width="img.metadata.width"
-                    :height="img.metadata.height"
-                    :modifiers="{ format: 'auto', compress: 'true' }"
-                    ref="panel"
-                    />
-               </div> -->
           </div>
 
           <div class="menu-bar">
