@@ -12,7 +12,7 @@
 
 <!-- <img class="img" srcset="{srcsetImage}" src="{urlImage}" alt="{data.content.title}"> -->
 <Image 
-     src={urlImage}
+     src={data.content.code}
      sizes="sm:250 md:300 lg:600" 
      width={null} 
      height={null} 

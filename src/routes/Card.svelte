@@ -15,7 +15,7 @@
                          quality="60"
                          loading="lazy"
                          fit="cover"
-                         src="/covers/${post.code}"
+                         src="{post.code}"
                          alt="{post.title}"
                          title="{post.title}"
                          width={null}
@@ -39,7 +39,7 @@
                </div>
                <div class="post-title">
                     <div class="title">
-                         <img src="/{post.language}.png" alt="{post.language}" width="18" height="18">
+                         <!-- <img src="/{post.language}.png" alt="{post.language}" width="18" height="18"> -->
                          <div>
                               <h3>{ post.title }</h3>
                          </div>
