@@ -51,8 +51,8 @@
 
 </footer>
 
-<style lang="scss">
-  :global(*) {
+<style lang="scss" global>
+  * {
     outline: none;
     list-style: none;
     padding: 0;
@@ -60,7 +60,7 @@
     box-sizing: border-box;
   }
 
-  :global(body) {
+  body {
     width: 100vw;
     overflow-x: hidden;
     background-color: #151515;
@@ -72,7 +72,7 @@
     min-height: 100vh;
   }
 
-  :global(.group-section) {
+  .group-section {
     text-align: center;
     color: #eaeaea;
     background-color: #000000;
@@ -101,7 +101,7 @@
     }
   }
 
-  :global(.group-posts) {
+  .group-posts {
     padding: .5rem;
     width: 100%;
     height: max-content;
