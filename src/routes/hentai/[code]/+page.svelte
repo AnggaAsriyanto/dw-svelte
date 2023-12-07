@@ -114,12 +114,14 @@
 
                     <div class="tags-cont">
                          {#if data.content.artist}
+                         <div>
                               <strong>Artist by </strong>
                               {#each data.content.artist.split(',') as artist}
                                    <div class="tag">
                                         <a href="/">{artist}</a>
                                    </div>                              
                               {/each}
+                         </div>
                          {/if}
 
                          <!-- {#if data.content.groups}
