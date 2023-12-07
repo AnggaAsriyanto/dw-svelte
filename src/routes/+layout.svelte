@@ -2,7 +2,8 @@
 <script lang="ts">
   import { invalidate } from '$app/navigation'
 	import { navigating } from '$app/stores';
-  import { afterUpdate, onMount } from 'svelte'
+  import { onMount } from 'svelte'
+  import '../app.scss'
 
   export let data
   
@@ -52,78 +53,6 @@
 </footer>
 
 <style lang="scss">
-  :global(p, h1, h2, h3, h4, h5) {
-    margin-bottom: 0;
-  }
-  
-  :global(*) {
-    outline: none;
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-
-  :global(body) {
-    width: 100vw;
-    overflow-x: hidden;
-    background-color: #151515;
-    color: #fefefe;
-  }
-
-  :global(main) {
-    position: relative;
-    min-height: 100vh;
-  }
-
-  :global(.group-section) {
-    text-align: center;
-    color: #eaeaea;
-    background-color: #000000;
-    border-radius: 3px;
-    padding-top: 1rem;
-    height: auto;
-    h2 {
-          font-size: 1.1rem;
-    }
-    .icon-title {
-          color: #fff;
-    }
-    .more {
-          display: inline-block;
-          color: inherit;
-          text-decoration: none;
-          padding: .4rem .5rem;
-          border-radius: 4px;
-          margin-top: .5rem;
-          margin-bottom: .7rem;
-          font-size: .85rem;
-          background-color: #373737;
-          &:active {
-              transform: scale(.95);
-          }
-    }
-  }
-
-  :global(.group-posts) {
-    padding: .5rem;
-    width: 100%;
-    height: max-content;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: .5rem .1rem;
-    border-radius: 3px;
-    padding-top: 1rem;
-    @media (min-width: 550px) {
-          padding: 1.5rem;
-          grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-          gap: .5rem .3rem;       
-    };
-    @media (min-width: 1000px) {
-          padding: 1.5rem 1.5rem .5rem;
-    }
-  }
-
   .load-bar {
     position: fixed;
     top: 0;
