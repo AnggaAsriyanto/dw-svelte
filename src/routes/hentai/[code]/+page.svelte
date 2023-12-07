@@ -47,7 +47,7 @@
                <div class="cover-cont">
                     <div class="img-cont">
                          <a href="hentai/{post.content.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
-                              <Image
+                              <!-- <Image
                               sizes="sm:250 md:300 lg:600"
                               quality="80"
                               fit="contain"
@@ -57,7 +57,7 @@
                               alt={data.content.title}
                               title={data.content.title}
                               loading={null}
-                              />
+                              /> -->
                          </a>
                     </div>
                </div>
