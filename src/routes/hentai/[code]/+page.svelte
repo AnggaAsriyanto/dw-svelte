@@ -8,7 +8,7 @@
      const post = data.content
      const images = data.images
 
-     console.log(data, page, post, images)
+     console.log(data, page)
 </script>
 
 <!-- <div class="img-container">
@@ -71,7 +71,7 @@
 
                     <div>
                          <div class="action">
-                              <button type="button" aria-label="copy code" on:click class="action-cont">
+                              <button type="button" aria-label="copy code" class="action-cont">
                                    <span>
                                         {  data.content.code  }
                                    </span>
@@ -82,7 +82,7 @@
                               </button>
                          </div>
                          <div class="action">
-                              <button type="button" aria-label="favorite" on:click class="action-cont">
+                              <button type="button" aria-label="favorite" class="action-cont">
                                    <span>
                                         { data.content.total_favorites }
                                    </span>
