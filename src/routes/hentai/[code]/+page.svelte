@@ -56,6 +56,7 @@
                               alt={data.content.title}
                               title={data.content.title}
                               loading={null}
+                              styleClass="img-cover"
                               />
                          </a>
                     </div>
@@ -111,7 +112,7 @@
                          </div>
                     </div>
 
-                    <!-- <div class="tags-cont">
+                    <div class="tags-cont">
                          {#if data.content.artist}
                               <strong>Artist by </strong>
                               {#each data.content.artists as artist}
@@ -120,43 +121,43 @@
                          {/if}
 
                          {#if data.content.groups}
-                              <strong>Artist by </strong>
+                              <strong>Group </strong>
                               {#each data.content.groups as group}
                                    <a href="/">{group}</a>
                               {/each}
                          {/if}
 
                          {#if data.content.is_parody}
-                              <strong>Artist by </strong>
+                              <strong>Parody </strong>
                               {#each data.content.title_parody as parody}
                                    <a href="/">{parody}</a>
                               {/each}
                          {/if}
 
                          {#if data.content.chara_parody}
-                              <strong>Artist by </strong>
+                              <strong>Character </strong>
                               {#each data.content.chara_parody as chara}
                                    <a href="/">{chara}</a>
                               {/each}
                          {/if}
 
                          {#if data.content.tags}
-                              <strong>Artist by </strong>
+                              <strong>Tags </strong>
                               {#each data.content.tags as tag}
                                    <a href="/">{tag}</a>
                               {/each}
                          {/if}
 
                          {#if data.content.category}
-                              <strong>Artist by </strong>
+                              <strong>Category </strong>
                               <a href="/">{data.content.category}</a>
                          {/if}
 
                          {#if data.content.language}
-                              <strong>Artist by </strong>
+                              <strong>Language </strong>
                               <a href="/">{data.content.language}</a>
                          {/if}
-                    </div> -->
+                    </div>
 
                     <div class="opt">
                          <div class="rate">
@@ -512,6 +513,7 @@
                cursor: pointer;
           }
      }
+
      .post-page {
           section {
                padding: 1rem;
