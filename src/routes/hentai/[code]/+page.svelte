@@ -248,17 +248,17 @@
                     <li>
                          <a href="hentai/{data.content.code}/{idx + 1}" rel="nofollow">
                               <div class="img-cont-list">
-                                   <Image
+                                   <!-- <Image
                                    sizes="sm:150 md:200 lg:400"
                                    loading="lazy"
-                                   src="{image.key}"
-                                   alt="{image.key}"
-                                   width="{image.customMetadata.width}"
-                                   height="{image.customMetadata.height}"
-                                   title={null}
+                                   src={image.key}
+                                   alt={image.key}
+                                   width={image.customMetadata.width}
+                                   height={image.customMetadata.height}
+                                   title={image.key}
                                    quality=80
                                    fit="contain"
-                                   />
+                                   /> -->
                               </div>
                          </a>
                     </li>
