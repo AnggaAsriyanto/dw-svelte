@@ -12,7 +12,7 @@
 
 <div class="img-container">
      <Image 
-     src={data.content.code}
+     src="covers/{data.content.code}"
      sizes="sm:250 md:300 lg:600" 
      width={null} 
      height={null} 
