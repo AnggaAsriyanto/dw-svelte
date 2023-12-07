@@ -15,7 +15,7 @@
                          quality="60"
                          loading="lazy"
                          fit="crop"
-                         src="{post.code}"
+                         src="covers/{post.code}"
                          alt="{post.title}"
                          title="{post.title}"
                          width={null}

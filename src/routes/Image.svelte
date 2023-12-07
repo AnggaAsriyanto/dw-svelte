@@ -9,7 +9,7 @@
   export let loading: any;
   export let title: any;
 
-  let srcPath = `https://overdoujin.gumlet.io/covers/${src}`
+  let srcPath = `https://overdoujin.gumlet.io/${src}`
 
   function generateSrcset(srcPath: any, sizes: string | String, quality: Number, fit: String) {
     const sizeArray = sizes.split(" ");
