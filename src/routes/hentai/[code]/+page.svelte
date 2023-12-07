@@ -113,9 +113,9 @@
                     </div>
 
                     <div class="tags-cont">
-                         {#if data.content.artists}
+                         {#if data.content.artist}
                               <strong>Artist by </strong>
-                              {#each data.content.artists as artist}
+                              {#each data.content.artist as artist}
                                    <a href="/">{artist}</a>
                               {/each}
                          {/if}
@@ -248,7 +248,7 @@
                     <li>
                          <a href="hentai/{data.content.code}/{idx + 1}" rel="nofollow">
                               <div class="img-cont-list">
-                                   <!-- <Image
+                                   <Image
                                    sizes="sm:150 md:200 lg:400"
                                    loading="lazy"
                                    src={image.key}
@@ -258,7 +258,7 @@
                                    title={image.key}
                                    quality=80
                                    fit="contain"
-                                   /> -->
+                                   />
                               </div>
                          </a>
                     </li>
