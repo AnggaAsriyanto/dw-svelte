@@ -1,17 +1,16 @@
 <script lang="ts">
 	import Image from "../../Image.svelte";
      import type { LayoutServerData } from "../../hentai/[code]/$types";
-     import { page } from "$app/stores";
 
      export let data: LayoutServerData
 
      const post = data.content
      const images = data.images
 
-     console.log(data, page)
+     console.log(data)
 </script>
 
-<!-- <div class="img-container">
+<div class="img-container">
      <Image 
      src={data.content.code}
      sizes="sm:250 md:300 lg:600" 
@@ -23,7 +22,7 @@
      title={data.content.title}
      loading={null}
      />
-</div> -->
+</div>
 
 <!-- <p>{ data.content.code }</p>
 <ul>
@@ -47,7 +46,7 @@
                <div class="cover-cont">
                     <div class="img-cont">
                          <a href="hentai/{post.content.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
-                              <!-- <Image
+                              <Image
                               sizes="sm:250 md:300 lg:600"
                               quality="80"
                               fit="contain"
@@ -57,7 +56,7 @@
                               alt={data.content.title}
                               title={data.content.title}
                               loading={null}
-                              /> -->
+                              />
                          </a>
                     </div>
                </div>
@@ -112,7 +111,7 @@
                          </div>
                     </div>
 
-                    <div class="tags-cont">
+                    <!-- <div class="tags-cont">
                          {#if data.content.artist}
                               <strong>Artist by </strong>
                               {#each data.content.artists as artist}
@@ -157,7 +156,7 @@
                               <strong>Artist by </strong>
                               <a href="/">{data.content.language}</a>
                          {/if}
-                    </div>
+                    </div> -->
 
                     <div class="opt">
                          <div class="rate">
