@@ -10,7 +10,7 @@
      console.log(data)
 </script>
 
-<div class="img-container">
+<!-- <div class="img-container">
      <Image 
      src="covers/{data.content.code}"
      sizes="sm:250 md:300 lg:600" 
@@ -22,7 +22,7 @@
      title={data.content.title}
      loading={null}
      />
-</div>
+</div> -->
 
 <!-- <p>{ data.content.code }</p>
 <ul>
@@ -45,7 +45,7 @@
           <div class="post-details">
                <div class="cover-cont">
                     <div class="img-cont">
-                         <a href="hentai/{post.content.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
+                         <a href="hentai/{post.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
                               <Image
                               sizes="sm:250 md:300 lg:600"
                               quality="80"
