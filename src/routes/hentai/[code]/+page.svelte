@@ -113,14 +113,14 @@
                     </div>
 
                     <div class="tags-cont">
-                         {#if data.content.artist}
+                         {#if data.content.artists}
                               <strong>Artist by </strong>
                               {#each data.content.artists as artist}
                                    <a href="/">{artist}</a>
                               {/each}
                          {/if}
 
-                         {#if data.content.groups}
+                         <!-- {#if data.content.groups}
                               <strong>Group </strong>
                               {#each data.content.groups as group}
                                    <a href="/">{group}</a>
@@ -156,7 +156,7 @@
                          {#if data.content.language}
                               <strong>Language </strong>
                               <a href="/">{data.content.language}</a>
-                         {/if}
+                         {/if} -->
                     </div>
 
                     <div class="opt">
