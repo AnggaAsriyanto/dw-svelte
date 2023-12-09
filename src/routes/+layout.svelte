@@ -34,7 +34,7 @@
       }
     })
 
-    disableScrollHandling
+    disableScrollHandling()
     return () => subscription.unsubscribe()
   });
 </script>
