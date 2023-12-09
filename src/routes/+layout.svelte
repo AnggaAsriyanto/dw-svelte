@@ -1,6 +1,6 @@
 <!-- src/routes/+layout.svelte -->
 <script lang="ts">
-  import { invalidate } from '$app/navigation'
+  import { invalidate, disableScrollHandling } from '$app/navigation'
 	import { navigating } from '$app/stores';
   import { onMount } from 'svelte'
   import '../app.scss'
@@ -34,6 +34,7 @@
       }
     })
 
+    disableScrollHandling
     return () => subscription.unsubscribe()
   });
 </script>
