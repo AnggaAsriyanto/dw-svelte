@@ -7,7 +7,7 @@
 { #each posts as post }
 <div class="post-cont">
      <div class="post-card">
-          <a href="/hentai/{post.code}" data-sveltekit-noscroll>
+          <a href="/hentai/{post.code}">
                <div class="post-img">
                     <div class="img-cont" style="aspect-ratio: {post.cover_ratio }">
                          <Image 
