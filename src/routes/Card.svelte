@@ -64,7 +64,7 @@
           height: auto;
           display: flex;
           flex-direction: column;
-          font-family: inherit;
+          font-family: var(--font-primary);
           overflow: hidden;
           div {
                width: 100%;
