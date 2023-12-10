@@ -35,7 +35,7 @@
           <div class="post-details">
                <div class="cover-cont">
                     <div class="img-cont">
-                         <a on:click={addReads} href="hentai/{post.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
+                         <a on:click={addReads} href="{post.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
                               <Image
                               sizes="sm:250 md:300 lg:600"
                               quality="80"
