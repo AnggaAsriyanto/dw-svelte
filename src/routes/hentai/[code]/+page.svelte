@@ -582,6 +582,7 @@
                }
                h1 {
                     line-height: 2.4rem;
+                    font-family: var(--font-primary);
                }
                h2 {
                     margin-top: .7rem;

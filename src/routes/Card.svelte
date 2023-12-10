@@ -149,6 +149,7 @@
                }
                h3 {
                     font-size: .85rem;
+                    font-family: inherit;
                }
                img {
                     margin-right: .5rem;
