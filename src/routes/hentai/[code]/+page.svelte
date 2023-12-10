@@ -582,7 +582,7 @@
                }
                h1 {
                     line-height: 2.4rem;
-                    font-family: var(--font-primary);
+                    font-family: 'Noto Sans', sans-serif;
                }
                h2 {
                     margin-top: .7rem;

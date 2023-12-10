@@ -149,7 +149,7 @@
                }
                h3 {
                     font-size: .85rem;
-                    font-family: inherit;
+                    font-family: 'Noto Sans', sans-serif;
                }
                img {
                     margin-right: .5rem;
