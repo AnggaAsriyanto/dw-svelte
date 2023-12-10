@@ -527,6 +527,7 @@
           .post-details {
                display: flex;
                flex-direction: column;
+               font-family: inherit;
                justify-content: center;
                height: max-content;
                width: 100%;
