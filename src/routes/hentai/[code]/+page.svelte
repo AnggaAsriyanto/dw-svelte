@@ -527,7 +527,7 @@
           .post-details {
                display: flex;
                flex-direction: column;
-               font-family: var(--font-primary);
+               font-family: inherit;
                justify-content: center;
                height: max-content;
                width: 100%;
@@ -582,7 +582,6 @@
                }
                h1 {
                     line-height: 2.4rem;
-                    font-family: 'Noto Sans', sans-serif;
                }
                h2 {
                     margin-top: .7rem;

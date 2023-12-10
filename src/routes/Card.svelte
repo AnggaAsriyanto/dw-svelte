@@ -64,7 +64,7 @@
           height: auto;
           display: flex;
           flex-direction: column;
-          font-family: var(--font-primary);
+          font-family: inherit;
           overflow: hidden;
           div {
                width: 100%;
@@ -149,7 +149,6 @@
                }
                h3 {
                     font-size: .85rem;
-                    font-family: 'Noto Sans', sans-serif;
                }
                img {
                     margin-right: .5rem;

@@ -12,7 +12,6 @@
 
 p, h1, h2, h3, h4, h5 {
      margin-bottom: 0;
-     font-family: "Noto Sans", sans-serif;
 }
 
 * {
@@ -25,7 +24,7 @@ p, h1, h2, h3, h4, h5 {
 
 body {
      width: 100vw;
-     font-family: "Noto Sans", sans-serif;
+     font-family: var(--font-primary);
      overflow-x: hidden;
      background-color: var(--body-1);
 }
