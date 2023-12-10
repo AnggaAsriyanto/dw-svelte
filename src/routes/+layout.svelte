@@ -45,7 +45,9 @@
 </header>
 
 <main>
-  <slot />
+  <div class="container">
+    <slot />
+  </div>
 </main>
 
 <footer>
@@ -53,6 +55,16 @@
 </footer>
 
 <style lang="scss">
+  .container {
+    padding: 1rem 0 0;
+    @media (min-width: 550px) {
+          padding: 1rem;
+    }
+    @media (min-width: 1000px) {
+          padding: 1rem 3rem 1rem 1.8rem;
+    }
+  }
+
   .load-bar {
     position: fixed;
     top: 0;

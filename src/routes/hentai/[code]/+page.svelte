@@ -10,31 +10,6 @@
      console.log(data)
 </script>
 
-<!-- <div class="img-container">
-     <Image 
-     src="covers/{data.content.code}"
-     sizes="sm:250 md:300 lg:600" 
-     width={null} 
-     height={null} 
-     alt={data.content.title} 
-     quality="80"
-     fit="fill"
-     title={data.content.title}
-     loading={null}
-     />
-</div> -->
-
-<!-- <p>{ data.content.code }</p>
-<ul>
-     {#each data.images as image, index}
-          <li>
-               <a href="/hentai/{data.content.code}/{index + 1}">
-                    { image.key }
-               </a>
-          </li>
-     {/each}
-</ul> -->
-
 <svelte:head>
      <title>{ data.content.title }</title>
 </svelte:head>
@@ -124,43 +99,67 @@
                               </div>
                          {/if}
 
-                         <!-- {#if data.content.groups}
-                              <strong>Group </strong>
-                              {#each data.content.groups as group}
-                                   <a href="/">{group}</a>
-                              {/each}
+                         {#if data.content.groups}
+                              <div>
+                                   <strong>Group </strong>
+                                   {#each data.content.groups.split(',') as group}
+                                        <div class="tag">
+                                             <a href="/">{group}</a>
+                                        </div>
+                                   {/each}
+                              </div>
                          {/if}
 
                          {#if data.content.is_parody}
-                              <strong>Parody </strong>
-                              {#each data.content.title_parody as parody}
-                                   <a href="/">{parody}</a>
-                              {/each}
+                              <div>
+                                   <strong>Parody </strong>
+                                   {#each data.content.title_parody.split(',') as parody}
+                                        <div class="tag">
+                                             <a href="/">{parody}</a>
+                                        </div>
+                                   {/each}
+                              </div>
                          {/if}
 
                          {#if data.content.chara_parody}
-                              <strong>Character </strong>
-                              {#each data.content.chara_parody as chara}
-                                   <a href="/">{chara}</a>
-                              {/each}
+                              <div>
+                                   <strong>Character </strong>
+                                   {#each data.content.chara_parody.split(',') as chara}
+                                        <div class="tag">
+                                             <a href="/">{chara}</a>
+                                        </div>
+                                   {/each}
+                              </div>
                          {/if}
 
                          {#if data.content.tags}
-                              <strong>Tags </strong>
-                              {#each data.content.tags as tag}
-                                   <a href="/">{tag}</a>
-                              {/each}
+                              <div>
+                                   <strong>Tags </strong>
+                                   {#each data.content.tags.split(',') as tag}
+                                        <div>
+                                             <a href="/">{tag}</a>
+                                        </div>
+                                   {/each}
+                              </div>
                          {/if}
 
                          {#if data.content.category}
-                              <strong>Category </strong>
-                              <a href="/">{data.content.category}</a>
+                              <div>
+                                   <strong>Category </strong>
+                                   <div class="tag">
+                                        <a href="/">{data.content.category}</a>
+                                   </div>
+                              </div>
                          {/if}
 
                          {#if data.content.language}
-                              <strong>Language </strong>
-                              <a href="/">{data.content.language}</a>
-                         {/if} -->
+                              <div>
+                                   <strong>Language </strong>
+                                   <div class="tag">
+                                        <a href="/">{data.content.language}</a>
+                                   </div>
+                              </div>
+                         {/if}
                     </div>
 
                     <div class="opt">

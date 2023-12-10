@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;700&family=Open+Sans:wght@400;500;700&family=Poppins:wght@400;700;800&display=swap');
+
 :root {
      --body-1: #151515;
      --primary: #212121;
@@ -21,9 +23,9 @@ p, h1, h2, h3, h4, h5 {
 
 body {
      width: 100vw;
+     font-family: 'Noto Sans', sans-serif;
      overflow-x: hidden;
      background-color: var(--body-1);
-     color: #fefefe;
 }
 
 main {
