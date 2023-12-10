@@ -1,12 +1,11 @@
 <script lang="ts">
 	import Image from "../../Image.svelte";
-     import type { LayoutServerData } from "../../hentai/[code]/$types";
 
-     export let data: LayoutServerData
+     export let data
 
      const post = data.content
      const images = data.images
-
+     const user = data.session?.user
      console.log(data)
 </script>
 

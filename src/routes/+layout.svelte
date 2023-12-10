@@ -14,17 +14,6 @@
   let { supabase, session } = data
   $: ({ supabase, session } = data)
 
-  $: if ($navigating) {
-    timeout = setTimeout(() => {
-      isLoading = true;
-    }, 1000);
-  }
-
-  $: if (!$navigating) {
-    clearTimeout(timeout);
-    isLoading = false;
-  }
-
   onMount(() => {
     const {
       data: { subscription },
@@ -36,6 +25,17 @@
 
     return () => subscription.unsubscribe()
   });
+
+  $: if ($navigating) {
+    timeout = setTimeout(() => {
+      isLoading = true;
+    }, 1000);
+  }
+
+  $: if (!$navigating) {
+    clearTimeout(timeout);
+    isLoading = false;
+  }
 </script>
 
 <div class="load-bar { isLoading ? 'loading' : 'loaded'}"></div>
