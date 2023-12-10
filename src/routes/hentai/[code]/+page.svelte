@@ -136,7 +136,7 @@
                               <div>
                                    <strong>Tags </strong>
                                    {#each data.content.tags.split(',') as tag}
-                                        <div>
+                                        <div class="tag">
                                              <a href="/">{tag}</a>
                                         </div>
                                    {/each}

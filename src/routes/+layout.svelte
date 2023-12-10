@@ -45,7 +45,7 @@
 </header>
 
 <main>
-  <div class="container">
+  <div class="container-page">
     <slot />
   </div>
 </main>
@@ -55,7 +55,7 @@
 </footer>
 
 <style lang="scss">
-  .container {
+  .container-page {
     padding: 1rem 0 0;
     @media (min-width: 550px) {
           padding: 1rem;
