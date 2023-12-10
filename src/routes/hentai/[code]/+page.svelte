@@ -13,7 +13,7 @@
                user_id: user?.id
           }
 
-          await fetch('/api/contents/addReads', {
+          await fetch('/api/contents', {
                method: 'POST',
                body: JSON.stringify(readData),
                headers: {
