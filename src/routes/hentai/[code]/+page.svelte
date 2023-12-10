@@ -6,6 +6,22 @@
      const post = data.content
      const images = data.images
      const user = data.session?.user
+
+     const addReads = async () => {
+          const readData = {
+               content_code: post.code,
+               user_id: user?.id
+          }
+
+          await fetch('/api/contents/addReads', {
+               method: 'POST',
+               body: JSON.stringify(readData),
+               headers: {
+                    "Content-Type": "application/json"
+               }
+          })
+     }
+
      console.log(data)
 </script>
 
@@ -19,7 +35,7 @@
           <div class="post-details">
                <div class="cover-cont">
                     <div class="img-cont">
-                         <a href="hentai/{post.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
+                         <a on:click={addReads} href="hentai/{post.code}/1" style="aspect-ratio: { data.content.cover_ratio }" rel="nofollow">
                               <Image
                               sizes="sm:250 md:300 lg:600"
                               quality="80"
